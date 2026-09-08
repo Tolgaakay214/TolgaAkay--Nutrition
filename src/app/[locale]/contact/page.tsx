@@ -3,6 +3,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { Link } from '@/navigation';
 import { Linkedin, Mail } from 'lucide-react';
 import { buildMetadata } from '@/lib/seo';
+import { ContactForm } from '@/components/forms/ContactForm';
 
 export async function generateMetadata({
   params: { locale }
@@ -62,6 +63,16 @@ export default function ContactPage({ params: { locale } }: { params: { locale: 
         >
           <Linkedin size={18} strokeWidth={1.6} /> linkedin.com/in/tolgaakay-nutrition
         </a>
+      </div>
+
+      <div className="mt-14 border-t border-line pt-10">
+        <h2 className="font-serif text-2xl text-ink">Or send a message directly</h2>
+        <p className="mt-2.5 max-w-[62ch] text-sm text-ink-soft">
+          For anything that doesn&rsquo;t fit the routes above — it still reaches me by email.
+        </p>
+        <div className="mt-8 max-w-2xl">
+          <ContactForm />
+        </div>
       </div>
     </div>
   );
