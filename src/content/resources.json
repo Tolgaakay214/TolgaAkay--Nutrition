@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "dcad-calculator",
+    "title": "DCAD Calculator",
+    "format": "Interactive",
+    "description": "Calculates dietary cation-anion difference from mineral inputs, with target ranges for lactating and close-up diets.",
+    "interactive": true
+  },
+  {
+    "slug": "dry-matter-calculator",
+    "title": "Dry Matter Calculator",
+    "format": "Interactive",
+    "description": "Converts as-fed ingredient weights to dry-matter basis for ration components.",
+    "interactive": true
+  },
+  {
+    "slug": "penn-state-separator-worksheet",
+    "title": "Penn State Particle Separator Worksheet",
+    "format": "Worksheet",
+    "description": "A recording sheet and interpretation guide for on-farm particle-size sampling.",
+    "interactive": false
+  },
+  {
+    "slug": "tmr-audit-checklist",
+    "title": "TMR Audit Checklist",
+    "format": "PDF",
+    "description": "A structured on-farm TMR consistency and mixing-order checklist.",
+    "interactive": false
+  },
+  {
+    "slug": "transition-cow-checklist",
+    "title": "Transition Cow Checklist",
+    "format": "PDF",
+    "description": "Close-up through fresh-period feeding and monitoring checklist.",
+    "interactive": false
+  },
+  {
+    "slug": "feed-evaluation-sheet",
+    "title": "Feed Evaluation Sheet",
+    "format": "Worksheet",
+    "description": "A structured template for interpreting a lab feed analysis report.",
+    "interactive": false
+  },
+  {
+    "slug": "urine-ph-recording-sheet",
+    "title": "Urine pH Recording Sheet",
+    "format": "PDF",
+    "description": "Close-up cow monitoring log with target ranges.",
+    "interactive": false
+  },
+  {
+    "slug": "ration-sampling-protocol",
+    "title": "Ration Sampling Protocol",
+    "format": "PDF",
+    "description": "Step-by-step correct sampling technique for representative feed analysis.",
+    "interactive": false
+  },
+  {
+    "slug": "body-condition-scoring-reference",
+    "title": "Body Condition Scoring Reference Sheet",
+    "format": "PDF",
+    "description": "Visual scoring guide keyed to transition-period targets.",
+    "interactive": false
+  },
+  {
+    "slug": "heat-stress-ration-worksheet",
+    "title": "Heat Stress Ration Adjustment Worksheet",
+    "format": "Worksheet",
+    "description": "A working sheet for adjusting DCAD and energy density in summer rations.",
+    "interactive": false
+  }
+]
