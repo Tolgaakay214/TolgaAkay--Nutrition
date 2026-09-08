@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Link } from '@/navigation';
 
@@ -11,7 +11,7 @@ interface Result {
   excerpt: string;
 }
 
-export default function SearchPage() {
+function SearchPageInner() {
   const params = useSearchParams();
   const q = params.get('q') ?? '';
   const [query, setQuery] = useState(q);
@@ -53,5 +53,13 @@ export default function SearchPage() {
       </div>
       {query && results.length === 0 && <p className="mt-8 text-ink-soft">No results for &ldquo;{query}&rdquo;.</p>}
     </div>
+  );
+}
+
+export default function SearchPage() {
+  return (
+    <Suspense fallback={null}>
+      <SearchPageInner />
+    </Suspense>
   );
 }
