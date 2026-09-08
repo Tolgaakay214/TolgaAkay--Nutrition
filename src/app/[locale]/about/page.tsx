@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { setRequestLocale } from 'next-intl/server';
 import { JsonLd } from '@/components/JsonLd';
 import { buildMetadata, personJsonLd } from '@/lib/seo';
@@ -47,7 +48,16 @@ export default function AboutPage({ params: { locale } }: { params: { locale: st
       </h1>
 
       <div className="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-[280px_1fr]">
-        <div className="aspect-[4/5] border border-line bg-[repeating-linear-gradient(135deg,var(--ivory-2),var(--ivory-2)_8px,var(--ivory)_8px,var(--ivory)_9px)]" />
+        <div className="relative aspect-[4/5] overflow-hidden border border-line">
+          <Image
+            src="/images/tolga-akay-portrait.jpg"
+            alt="Portrait of Tolga Akay"
+            fill
+            sizes="280px"
+            className="object-cover"
+            priority
+          />
+        </div>
         <div className="max-w-[68ch] space-y-5 text-[17px] leading-relaxed text-ink-soft">
           <p>
             I&rsquo;m an animal nutritionist working in ruminant and dairy cattle nutrition, currently serving as
