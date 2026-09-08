@@ -20,7 +20,10 @@ export async function sendNotification({
   }
   const resend = new Resend(apiKey);
   await resend.emails.send({
-    from: 'Tolga Akay Website <notifications@tolgaakay.com>',
+    // Uses Resend's shared onboarding domain until a custom domain is
+    // verified in Resend (Settings -> Domains) — swap this for
+    // notifications@yourdomain.com once that's set up.
+    from: 'Tolga Akay Website <onboarding@resend.dev>',
     to,
     subject,
     text
