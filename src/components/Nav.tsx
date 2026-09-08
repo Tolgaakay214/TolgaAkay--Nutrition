@@ -5,6 +5,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { Link, usePathname } from '@/navigation';
 import { Menu, X } from 'lucide-react';
 import { SearchBox } from './SearchBox';
+import { Logo } from './Logo';
 
 const links = [
   { href: '/articles', key: 'articles' },
@@ -25,8 +26,8 @@ export function Nav() {
     <>
       <header className="sticky top-0 z-40 border-b border-line bg-ivory/90 backdrop-blur">
         <div className="mx-auto flex h-[76px] max-w-content items-center justify-between px-5 sm:px-8">
-          <Link href="/" className="font-serif text-xl font-semibold tracking-tight">
-            Tolga <span className="text-bronze">Akay</span>
+          <Link href="/" className="focus-ring rounded-sm">
+            <Logo />
           </Link>
 
           <nav className="hidden items-center gap-8 text-[14.5px] text-ink-soft lg:flex">
