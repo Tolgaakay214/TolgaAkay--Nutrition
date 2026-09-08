@@ -34,22 +34,31 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, error: 'verification_failed' }, { status: 400 });
   }
 
-  await saveSubmission('consultancy_inquiries', {
-    name: data.name,
-    email: data.email,
-    company: data.company ?? null,
-    country: data.country,
-    role: data.role ?? null,
-    areas_of_interest: data.areasOfInterest,
-    description: data.description,
-    preferred_contact: data.preferredContact ?? null
-  });
+  try {
+    await saveSubmission('consultancy_inquiries', {
+      name: data.name,
+      email: data.email,
+      company: data.company ?? null,
+      country: data.country,
+      role: data.role ?? null,
+      areas_of_interest: data.areasOfInterest,
+      description: data.description,
+      preferred_contact: data.preferredContact ?? null
+    });
+  } catch (err) {
+    console.error('[consultancy] failed to save submission:', err);
+    return NextResponse.json({ ok: false, error: 'save_failed' }, { status: 500 });
+  }
 
-  await sendNotification({
-    to: process.env.CONSULTANCY_TO_EMAIL ?? 'tolgaakay616@gmail.com',
-    subject: `New consultancy inquiry: ${data.name}`,
-    text: `From: ${data.name} <${data.email}>\nCompany: ${data.company ?? '—'}\nCountry: ${data.country}\nRole: ${data.role ?? '—'}\nAreas: ${data.areasOfInterest.join(', ')}\n\n${data.description}`
-  });
+  try {
+    await sendNotification({
+      to: process.env.CONSULTANCY_TO_EMAIL ?? 'tolgaakay616@gmail.com',
+      subject: `New consultancy inquiry: ${data.name}`,
+      text: `From: ${data.name} <${data.email}>\nCompany: ${data.company ?? '—'}\nCountry: ${data.country}\nRole: ${data.role ?? '—'}\nAreas: ${data.areasOfInterest.join(', ')}\n\n${data.description}`
+    });
+  } catch (err) {
+    console.error('[consultancy] failed to send notification email:', err);
+  }
 
   return NextResponse.json({ ok: true });
 }
