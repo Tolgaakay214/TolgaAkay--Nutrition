@@ -37,22 +37,33 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, error: 'verification_failed' }, { status: 400 });
   }
 
-  await saveSubmission('question_submissions', {
-    name: data.name,
-    email: data.email,
-    country: data.country,
-    profession: data.profession,
-    subject: data.subject,
-    question: data.question,
-    keep_private: !!data.keepPrivate,
-    consent_at: new Date().toISOString()
-  });
+  try {
+    await saveSubmission('question_submissions', {
+      name: data.name,
+      email: data.email,
+      country: data.country,
+      profession: data.profession,
+      subject: data.subject,
+      question: data.question,
+      keep_private: !!data.keepPrivate,
+      consent_at: new Date().toISOString()
+    });
+  } catch (err) {
+    console.error('[ask-a-question] failed to save submission:', err);
+    return NextResponse.json({ ok: false, error: 'save_failed' }, { status: 500 });
+  }
 
-  await sendNotification({
-    to: process.env.ASK_QUESTION_TO_EMAIL ?? 'tolgaakay616@gmail.com',
-    subject: `New question: ${data.subject}`,
-    text: `From: ${data.name} <${data.email}>\nCountry: ${data.country}\nProfession: ${data.profession}\nKeep private: ${!!data.keepPrivate}\n\n${data.question}`
-  });
+  try {
+    await sendNotification({
+      to: process.env.ASK_QUESTION_TO_EMAIL ?? 'tolgaakay616@gmail.com',
+      subject: `New question: ${data.subject}`,
+      text: `From: ${data.name} <${data.email}>\nCountry: ${data.country}\nProfession: ${data.profession}\nKeep private: ${!!data.keepPrivate}\n\n${data.question}`
+    });
+  } catch (err) {
+    // The submission itself is already saved (source of truth) — don't fail
+    // the request just because the notification email couldn't be sent.
+    console.error('[ask-a-question] failed to send notification email:', err);
+  }
 
   return NextResponse.json({ ok: true });
 }
