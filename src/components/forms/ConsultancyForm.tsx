@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { Turnstile } from '../Turnstile';
 
 const AREAS = [
   'Ration Evaluation',
@@ -24,6 +25,7 @@ export function ConsultancyForm() {
   const t = useTranslations('forms');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const renderedAt = useRef(Date.now().toString());
+  const [turnstileToken, setTurnstileToken] = useState('');
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -41,7 +43,8 @@ export function ConsultancyForm() {
       description: String(fd.get('description') ?? ''),
       preferredContact: String(fd.get('preferredContact') ?? ''),
       honeypot: String(fd.get('company_website') ?? ''),
-      formRenderedAt: renderedAt.current
+      formRenderedAt: renderedAt.current,
+      turnstileToken
     };
 
     setStatus('loading');
@@ -120,6 +123,8 @@ export function ConsultancyForm() {
         <label className={labelClass} htmlFor="description">Tell me about your operation or question</label>
         <textarea id="description" name="description" required rows={6} maxLength={3000} className={fieldClass} />
       </div>
+
+      <Turnstile onToken={setTurnstileToken} />
 
       <button
         type="submit"
