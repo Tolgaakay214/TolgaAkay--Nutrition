@@ -25,7 +25,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://tolgaakay.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://tolgaakay.com'),
   title: {
     default: 'Tolga Akay — Applied Ruminant Nutrition',
     template: '%s | Tolga Akay'

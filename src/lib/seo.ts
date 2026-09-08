@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://tolgaakay.com';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://tolgaakay.com';
 const SITE_NAME = 'Tolga Akay — Applied Ruminant Nutrition';
 
 export function absoluteUrl(pathname: string) {
