@@ -1,6 +1,7 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/navigation';
 import { Linkedin, Mail } from 'lucide-react';
+import { Logo } from './Logo';
 
 export function Footer() {
   const t = useTranslations('footer');
@@ -10,8 +11,8 @@ export function Footer() {
     <footer className="mx-auto max-w-content px-5 pb-10 pt-16 sm:px-8">
       <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 sm:gap-10">
         <div className="col-span-2 sm:col-span-1">
-          <Link href="/" className="font-serif text-xl font-semibold">
-            Tolga <span className="text-bronze">Akay</span>
+          <Link href="/" className="focus-ring inline-block rounded-sm">
+            <Logo compact />
           </Link>
           <p className="mt-3 max-w-[32ch] text-[13.5px] text-ink-soft">{t('tagline')}</p>
           <div className="mt-4 flex gap-3">
