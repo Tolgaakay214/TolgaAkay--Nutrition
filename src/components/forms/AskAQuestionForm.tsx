@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { Turnstile } from '../Turnstile';
 
 const fieldClass =
   'focus-ring w-full border border-line bg-ivory px-4 py-3 text-[15px] text-ink placeholder:text-ink-soft';
@@ -11,6 +12,7 @@ export function AskAQuestionForm() {
   const t = useTranslations('forms');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const renderedAt = useRef(Date.now().toString());
+  const [turnstileToken, setTurnstileToken] = useState('');
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -27,7 +29,8 @@ export function AskAQuestionForm() {
       keepPrivate: fd.get('keepPrivate') === 'on',
       consent: fd.get('consent') === 'on',
       honeypot: String(fd.get('company_website') ?? ''),
-      formRenderedAt: renderedAt.current
+      formRenderedAt: renderedAt.current,
+      turnstileToken
     };
 
     setStatus('loading');
@@ -111,6 +114,8 @@ export function AskAQuestionForm() {
         <input type="checkbox" name="consent" required className="mt-1" />
         {t('consent')}
       </label>
+
+      <Turnstile onToken={setTurnstileToken} />
 
       <button
         type="submit"
