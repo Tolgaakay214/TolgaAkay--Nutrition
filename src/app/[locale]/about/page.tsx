@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { setRequestLocale } from 'next-intl/server';
 import { JsonLd } from '@/components/JsonLd';
 import { buildMetadata, personJsonLd } from '@/lib/seo';
 
@@ -34,7 +35,9 @@ const interests = [
   'Metabolic Adaptation'
 ];
 
-export default function AboutPage() {
+export default function AboutPage({ params: { locale } }: { params: { locale: string } }) {
+  setRequestLocale(locale);
+
   return (
     <div className="mx-auto max-w-content px-5 py-16 sm:px-8">
       <JsonLd data={personJsonLd()} />

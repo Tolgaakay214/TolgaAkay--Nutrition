@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { setRequestLocale } from 'next-intl/server';
 import { Link } from '@/navigation';
 import { SectionHead } from '@/components/SectionHead';
 import { getAllResearchNotes } from '@/lib/content';
@@ -17,7 +18,9 @@ export async function generateMetadata({
   });
 }
 
-export default function ResearchNotesIndex() {
+export default function ResearchNotesIndex({ params: { locale } }: { params: { locale: string } }) {
+  setRequestLocale(locale);
+
   const notes = getAllResearchNotes();
   return (
     <div className="mx-auto max-w-content px-5 py-16 sm:px-8">

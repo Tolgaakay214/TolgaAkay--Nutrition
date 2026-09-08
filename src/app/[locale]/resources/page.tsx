@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { setRequestLocale } from 'next-intl/server';
 import { Link } from '@/navigation';
 import { SectionHead } from '@/components/SectionHead';
 import { getAllResources } from '@/lib/content';
@@ -17,7 +18,9 @@ export async function generateMetadata({
   });
 }
 
-export default function ResourcesIndex() {
+export default function ResourcesIndex({ params: { locale } }: { params: { locale: string } }) {
+  setRequestLocale(locale);
+
   const resources = getAllResources();
   return (
     <div className="mx-auto max-w-content px-5 py-16 sm:px-8">

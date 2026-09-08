@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { setRequestLocale } from 'next-intl/server';
 import { Link } from '@/navigation';
 import { Linkedin, Mail } from 'lucide-react';
 import { buildMetadata } from '@/lib/seo';
@@ -29,7 +30,9 @@ const routes = [
   }
 ];
 
-export default function ContactPage() {
+export default function ContactPage({ params: { locale } }: { params: { locale: string } }) {
+  setRequestLocale(locale);
+
   return (
     <div className="mx-auto max-w-content px-5 py-16 sm:px-8">
       <p className="eyebrow">Contact</p>

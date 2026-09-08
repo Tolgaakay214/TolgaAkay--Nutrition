@@ -4,6 +4,7 @@ import { Link } from '@/navigation';
 import { getAllResources, getResourceBySlug } from '@/lib/content';
 import { buildMetadata } from '@/lib/seo';
 import { DCADCalculator } from '@/components/calculators/DCADCalculator';
+import { setRequestLocale } from 'next-intl/server';
 
 export function generateStaticParams() {
   return getAllResources().map((r) => ({ slug: r.slug }));
@@ -24,7 +25,12 @@ export async function generateMetadata({
   });
 }
 
-export default function ResourcePage({ params: { slug } }: { params: { slug: string } }) {
+export default function ResourcePage({
+  params: { locale, slug }
+}: {
+  params: { locale: string; slug: string };
+}) {
+  setRequestLocale(locale);
   const resource = getResourceBySlug(slug);
   if (!resource) notFound();
 

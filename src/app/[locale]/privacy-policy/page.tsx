@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { setRequestLocale } from 'next-intl/server';
 import { buildMetadata } from '@/lib/seo';
 
 export async function generateMetadata({
@@ -14,7 +15,9 @@ export async function generateMetadata({
   });
 }
 
-export default function PrivacyPolicyPage() {
+export default function PrivacyPolicyPage({ params: { locale } }: { params: { locale: string } }) {
+  setRequestLocale(locale);
+
   return (
     <div className="mx-auto max-w-[68ch] px-5 py-16 sm:px-8">
       <p className="eyebrow">Legal</p>

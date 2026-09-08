@@ -6,6 +6,7 @@ import { getAllGuides, getGuideBySlug } from '@/lib/content';
 import { buildMetadata, breadcrumbJsonLd } from '@/lib/seo';
 import { JsonLd } from '@/components/JsonLd';
 import { References, mdxComponents } from '@/components/mdx/MdxComponents';
+import { setRequestLocale } from 'next-intl/server';
 
 export function generateStaticParams() {
   return getAllGuides().map((g) => ({ slug: g.slug }));
@@ -26,7 +27,12 @@ export async function generateMetadata({
   });
 }
 
-export default function GuidePage({ params: { slug } }: { params: { slug: string } }) {
+export default function GuidePage({
+  params: { locale, slug }
+}: {
+  params: { locale: string; slug: string };
+}) {
+  setRequestLocale(locale);
   const guide = getGuideBySlug(slug);
   if (!guide) notFound();
   const { meta, content } = guide;

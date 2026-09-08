@@ -6,6 +6,7 @@ import { buildMetadata, articleJsonLd, breadcrumbJsonLd, absoluteUrl } from '@/l
 import { JsonLd } from '@/components/JsonLd';
 import { References, mdxComponents } from '@/components/mdx/MdxComponents';
 import { Link } from '@/navigation';
+import { setRequestLocale } from 'next-intl/server';
 
 export function generateStaticParams() {
   return getAllArticles().map((a) => ({ slug: a.slug }));
@@ -27,7 +28,12 @@ export async function generateMetadata({
   });
 }
 
-export default function ArticlePage({ params: { slug } }: { params: { slug: string } }) {
+export default function ArticlePage({
+  params: { locale, slug }
+}: {
+  params: { locale: string; slug: string };
+}) {
+  setRequestLocale(locale);
   const article = getArticleBySlug(slug);
   if (!article) notFound();
   const { meta, content } = article;

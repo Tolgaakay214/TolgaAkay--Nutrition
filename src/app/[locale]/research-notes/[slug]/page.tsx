@@ -6,6 +6,7 @@ import { getAllResearchNotes, getResearchNoteBySlug } from '@/lib/content';
 import { buildMetadata, breadcrumbJsonLd } from '@/lib/seo';
 import { JsonLd } from '@/components/JsonLd';
 import { mdxComponents } from '@/components/mdx/MdxComponents';
+import { setRequestLocale } from 'next-intl/server';
 
 export function generateStaticParams() {
   return getAllResearchNotes().map((n) => ({ slug: n.slug }));
@@ -26,7 +27,12 @@ export async function generateMetadata({
   });
 }
 
-export default function ResearchNotePage({ params: { slug } }: { params: { slug: string } }) {
+export default function ResearchNotePage({
+  params: { locale, slug }
+}: {
+  params: { locale: string; slug: string };
+}) {
+  setRequestLocale(locale);
   const note = getResearchNoteBySlug(slug);
   if (!note) notFound();
 

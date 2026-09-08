@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { setRequestLocale } from 'next-intl/server';
 import { ConsultancyForm } from '@/components/forms/ConsultancyForm';
 import { buildMetadata } from '@/lib/seo';
 
@@ -34,7 +35,9 @@ const steps = [
   { title: 'Recommendations', text: 'You receive clear, evidence-based findings — not a generic report template.' }
 ];
 
-export default function ConsultancyPage() {
+export default function ConsultancyPage({ params: { locale } }: { params: { locale: string } }) {
+  setRequestLocale(locale);
+
   return (
     <div className="mx-auto max-w-content px-5 py-16 sm:px-8">
       <p className="eyebrow">Collaborate</p>

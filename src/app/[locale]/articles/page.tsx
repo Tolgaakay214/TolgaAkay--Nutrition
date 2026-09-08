@@ -4,6 +4,7 @@ import { ArticleCard } from '@/components/ArticleCard';
 import { SectionHead } from '@/components/SectionHead';
 import { getAllArticles, type ArticleCategory } from '@/lib/content';
 import { buildMetadata } from '@/lib/seo';
+import { setRequestLocale } from 'next-intl/server';
 
 const CATEGORIES: ArticleCategory[] = [
   'Transition Cow Nutrition',
@@ -32,10 +33,13 @@ export async function generateMetadata({
 }
 
 export default function ArticlesIndex({
+  params: { locale },
   searchParams
 }: {
+  params: { locale: string };
   searchParams: { category?: string };
 }) {
+  setRequestLocale(locale);
   const all = getAllArticles();
   const active = searchParams.category;
   const filtered = active ? all.filter((a) => a.category === active) : all;
