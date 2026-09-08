@@ -56,7 +56,6 @@ export interface ResourceItem {
 
 function readCollection<T extends { slug: string }>(
   dir: string,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   mapFrontmatter: (data: Record<string, any>, slug: string, content: string) => T
 ): T[] {
   const full = path.join(CONTENT_ROOT, dir);
