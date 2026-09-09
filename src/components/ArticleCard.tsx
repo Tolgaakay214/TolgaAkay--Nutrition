@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import { Link } from '@/navigation';
 import type { ArticleMeta } from '@/lib/content';
 
@@ -71,6 +72,7 @@ function Cover({ pattern }: { pattern: ArticleMeta['coverPattern'] }) {
 }
 
 export function ArticleCard({ article }: { article: ArticleMeta }) {
+  const tCat = useTranslations('categories');
   return (
     <Link
       href={`/articles/${article.slug}`}
@@ -81,7 +83,7 @@ export function ArticleCard({ article }: { article: ArticleMeta }) {
       </div>
       <div className="flex flex-1 flex-col gap-2.5 p-5">
         <div className="flex justify-between font-mono text-[10.5px] uppercase tracking-wider text-bronze">
-          <span>{article.category}</span>
+          <span>{tCat(article.category)}</span>
           <span className="text-ink-soft">{article.readingTime}</span>
         </div>
         <h3 className="font-serif text-[19px] font-medium leading-snug text-ink">{article.title}</h3>
