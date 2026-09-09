@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { ConsultancyForm } from '@/components/forms/ConsultancyForm';
 import { buildMetadata } from '@/lib/seo';
 
@@ -16,45 +16,29 @@ export async function generateMetadata({
   });
 }
 
-const AREAS = [
-  'Ration Evaluation',
-  'Transition Cow Feeding Programs',
-  'DCAD Evaluation',
-  'Feed Additive Evaluation',
-  'TMR & Particle Size Assessment',
-  'Feed and Forage Interpretation',
-  'Technical Product Evaluation',
-  'Scientific Literature Reviews',
-  'Ruminant Nutrition Training',
-  'Farm Nutrition Audits'
-];
-
-const steps = [
-  { title: 'Initial Conversation', text: 'A short call or written exchange to understand your situation and whether I’m the right fit.' },
-  { title: 'Scope & Data Review', text: 'I review your ration, feed analyses, or the specific question at hand.' },
-  { title: 'Recommendations', text: 'You receive clear, evidence-based findings — not a generic report template.' }
-];
-
-export default function ConsultancyPage({ params: { locale } }: { params: { locale: string } }) {
+export default async function ConsultancyPage({ params: { locale } }: { params: { locale: string } }) {
   setRequestLocale(locale);
+  const t = await getTranslations('consultancy');
+
+  const areas = t.raw('areas') as string[];
+  const steps = [
+    { title: t('stepTitle0'), text: t('stepText0') },
+    { title: t('stepTitle1'), text: t('stepText1') },
+    { title: t('stepTitle2'), text: t('stepText2') }
+  ];
 
   return (
     <div className="mx-auto max-w-content px-5 py-16 sm:px-8">
-      <p className="eyebrow">Collaborate</p>
+      <p className="eyebrow">{t('eyebrow')}</p>
       <h1 className="mt-4 max-w-[20ch] font-serif text-[clamp(32px,4.5vw,52px)] font-medium leading-tight text-ink text-balance">
-        Collaborate With Me
+        {t('title')}
       </h1>
-      <p className="mt-6 max-w-[62ch] text-lg text-ink-soft">
-        I work with dairy farms, veterinarians, feed companies, and agribusinesses on a focused set of technical
-        questions in ruminant nutrition. My approach starts from the same place published research does: look at
-        the data, question the assumptions, and recommend only what the evidence actually supports for your
-        specific situation.
-      </p>
+      <p className="mt-6 max-w-[62ch] text-lg text-ink-soft">{t('body')}</p>
 
       <div className="mt-14">
-        <p className="eyebrow">Areas I Can Support</p>
+        <p className="eyebrow">{t('areasEyebrow')}</p>
         <div className="mt-5 flex flex-wrap gap-2.5">
-          {AREAS.map((a) => (
+          {areas.map((a) => (
             <span key={a} className="rounded-full border border-line px-4 py-2 font-mono text-xs text-ink">
               {a}
             </span>
@@ -72,10 +56,7 @@ export default function ConsultancyPage({ params: { locale } }: { params: { loca
         ))}
       </div>
 
-      <p className="mt-16 max-w-[62ch] text-ink-soft">
-        If you&rsquo;re not sure whether your question fits here, ask — I&rsquo;d rather have a short conversation
-        than have you guess.
-      </p>
+      <p className="mt-16 max-w-[62ch] text-ink-soft">{t('closing')}</p>
 
       <div className="mt-10 max-w-2xl border border-line p-6 sm:p-10">
         <ConsultancyForm />
