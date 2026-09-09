@@ -37,10 +37,10 @@ export function Footer() {
             {t('explore')}
           </h5>
           <ul className="space-y-2.5 text-sm">
-            <li><Link href="/about" className="hover:text-bronze">About</Link></li>
-            <li><Link href="/articles" className="hover:text-bronze">Articles</Link></li>
-            <li><Link href="/guides" className="hover:text-bronze">Technical Guides</Link></li>
-            <li><Link href="/resources" className="hover:text-bronze">Resources</Link></li>
+            <li><Link href="/about" className="hover:text-bronze">{t('aboutLink')}</Link></li>
+            <li><Link href="/articles" className="hover:text-bronze">{t('articlesLink')}</Link></li>
+            <li><Link href="/guides" className="hover:text-bronze">{t('guidesLink')}</Link></li>
+            <li><Link href="/resources" className="hover:text-bronze">{t('resourcesLink')}</Link></li>
           </ul>
         </div>
         <div>
@@ -48,8 +48,8 @@ export function Footer() {
             {t('connect')}
           </h5>
           <ul className="space-y-2.5 text-sm">
-            <li><Link href="/ask-a-question" className="hover:text-bronze">Ask a Question</Link></li>
-            <li><Link href="/consultancy" className="hover:text-bronze">Collaborate With Me</Link></li>
+            <li><Link href="/ask-a-question" className="hover:text-bronze">{t('askLink')}</Link></li>
+            <li><Link href="/consultancy" className="hover:text-bronze">{t('collaborateLink')}</Link></li>
             <li><Link href="/contact" className="hover:text-bronze">{t('contact')}</Link></li>
           </ul>
         </div>
