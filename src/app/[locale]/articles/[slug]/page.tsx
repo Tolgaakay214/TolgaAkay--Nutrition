@@ -6,7 +6,8 @@ import { buildMetadata, articleJsonLd, breadcrumbJsonLd, absoluteUrl } from '@/l
 import { JsonLd } from '@/components/JsonLd';
 import { References, mdxComponents } from '@/components/mdx/MdxComponents';
 import { Link } from '@/navigation';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import type { Locale } from '@/i18n';
 
 export function generateStaticParams() {
   return getAllArticles().map((a) => ({ slug: a.slug }));
@@ -17,7 +18,7 @@ export async function generateMetadata({
 }: {
   params: { locale: string; slug: string };
 }): Promise<Metadata> {
-  const article = getArticleBySlug(slug);
+  const article = getArticleBySlug(slug, locale as Locale);
   if (!article) return {};
   return buildMetadata({
     title: article.meta.title,
@@ -28,15 +29,19 @@ export async function generateMetadata({
   });
 }
 
-export default function ArticlePage({
+export default async function ArticlePage({
   params: { locale, slug }
 }: {
   params: { locale: string; slug: string };
 }) {
   setRequestLocale(locale);
-  const article = getArticleBySlug(slug);
+  const t = await getTranslations('articles');
+  const tc = await getTranslations('common');
+  const tCat = await getTranslations('categories');
+  const article = getArticleBySlug(slug, locale as Locale);
   if (!article) notFound();
   const { meta, content } = article;
+  const categoryLabel = tCat(meta.category);
 
   return (
     <article className="mx-auto max-w-content px-5 py-16 sm:px-8">
@@ -50,22 +55,28 @@ export default function ArticlePage({
       />
       <JsonLd
         data={breadcrumbJsonLd([
-          { name: 'Home', item: '/' },
-          { name: 'Articles', item: '/articles' },
+          { name: tc('breadcrumbHome'), item: '/' },
+          { name: t('breadcrumbLabel'), item: '/articles' },
           { name: meta.title, item: `/articles/${slug}` }
         ])}
       />
 
       <nav className="mb-8 font-mono text-xs text-ink-soft">
-        <Link href="/articles" className="hover:text-bronze">Articles</Link>
+        <Link href="/articles" className="hover:text-bronze">{t('breadcrumbLabel')}</Link>
         <span className="mx-2">/</span>
-        <span>{meta.category}</span>
+        <span>{categoryLabel}</span>
       </nav>
 
       <div className="mb-4 flex flex-wrap items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-bronze">
-        <span>{meta.category}</span>
+        <span>{categoryLabel}</span>
         <span className="text-ink-soft">·</span>
-        <span className="text-ink-soft">{new Date(meta.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+        <span className="text-ink-soft">
+          {new Date(meta.date).toLocaleDateString(locale === 'tr' ? 'tr-TR' : 'en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })}
+        </span>
         <span className="text-ink-soft">·</span>
         <span className="text-ink-soft">{meta.readingTime}</span>
       </div>
@@ -87,7 +98,7 @@ export default function ArticlePage({
           rel="noopener noreferrer"
           className="focus-ring rounded-sm border border-line px-4 py-2 text-sm text-ink-soft hover:border-bronze hover:text-bronze"
         >
-          Share on LinkedIn
+          {t('shareLinkedIn')}
         </a>
         <a
           href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(absoluteUrl(`/articles/${slug}`))}&text=${encodeURIComponent(meta.title)}`}
@@ -95,7 +106,7 @@ export default function ArticlePage({
           rel="noopener noreferrer"
           className="focus-ring rounded-sm border border-line px-4 py-2 text-sm text-ink-soft hover:border-bronze hover:text-bronze"
         >
-          Share on X
+          {t('shareX')}
         </a>
       </div>
     </article>
