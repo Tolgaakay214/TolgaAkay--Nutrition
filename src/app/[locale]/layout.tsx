@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Fraunces, Inter, IBM_Plex_Mono } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, setRequestLocale } from 'next-intl/server';
+import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { locales, type Locale } from '@/i18n';
 import { Nav } from '@/components/Nav';
@@ -50,6 +50,7 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   const messages = await getMessages();
+  const t = await getTranslations('layout');
 
   return (
     <html lang={locale} className={`${fraunces.variable} ${inter.variable} ${plexMono.variable}`}>
@@ -60,7 +61,7 @@ export default async function LocaleLayout({
             href="#main"
             className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-espresso focus:px-4 focus:py-2 focus:text-ivory"
           >
-            Skip to content
+            {t('skipToContent')}
           </a>
           <Nav />
           <main id="main">{children}</main>
