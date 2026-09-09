@@ -4,7 +4,8 @@ import { Link } from '@/navigation';
 import { getAllResources, getResourceBySlug } from '@/lib/content';
 import { buildMetadata } from '@/lib/seo';
 import { DCADCalculator } from '@/components/calculators/DCADCalculator';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import type { Locale } from '@/i18n';
 
 export function generateStaticParams() {
   return getAllResources().map((r) => ({ slug: r.slug }));
@@ -15,7 +16,7 @@ export async function generateMetadata({
 }: {
   params: { locale: string; slug: string };
 }): Promise<Metadata> {
-  const resource = getResourceBySlug(slug);
+  const resource = getResourceBySlug(slug, locale as Locale);
   if (!resource) return {};
   return buildMetadata({
     title: resource.title,
@@ -25,19 +26,20 @@ export async function generateMetadata({
   });
 }
 
-export default function ResourcePage({
+export default async function ResourcePage({
   params: { locale, slug }
 }: {
   params: { locale: string; slug: string };
 }) {
   setRequestLocale(locale);
-  const resource = getResourceBySlug(slug);
+  const t = await getTranslations('resources');
+  const resource = getResourceBySlug(slug, locale as Locale);
   if (!resource) notFound();
 
   return (
     <div className="mx-auto max-w-content px-5 py-16 sm:px-8">
       <Link href="/resources" className="font-mono text-xs text-ink-soft hover:text-bronze">
-        ← Resources
+        {t('backLink')}
       </Link>
       <span className="mt-6 block font-mono text-[11px] uppercase tracking-wider text-bronze">{resource.format}</span>
       <h1 className="mt-3 max-w-[26ch] font-serif text-[clamp(28px,4vw,42px)] font-medium leading-tight text-ink text-balance">
@@ -51,15 +53,13 @@ export default function ResourcePage({
         ) : (
           <div className="border border-line bg-ivory-2 p-8 text-center">
             <p className="text-ink-soft">
-              {resource.format === 'PDF'
-                ? 'This resource is being finalized as a downloadable PDF. In the meantime, request it directly.'
-                : 'This interactive worksheet is in development. In the meantime, request the current version directly.'}
+              {resource.format === 'PDF' ? t('pdfPending') : t('worksheetPending')}
             </p>
             <Link
               href="/ask-a-question"
               className="focus-ring mt-5 inline-flex rounded-sm bg-espresso px-5 py-3 text-sm font-semibold text-ivory hover:bg-bronze-deep"
             >
-              Request This Resource
+              {t('requestButton')}
             </Link>
           </div>
         )}
