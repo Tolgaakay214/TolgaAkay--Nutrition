@@ -6,7 +6,8 @@ import { getAllResearchNotes, getResearchNoteBySlug } from '@/lib/content';
 import { buildMetadata, breadcrumbJsonLd } from '@/lib/seo';
 import { JsonLd } from '@/components/JsonLd';
 import { mdxComponents } from '@/components/mdx/MdxComponents';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import type { Locale } from '@/i18n';
 
 export function generateStaticParams() {
   return getAllResearchNotes().map((n) => ({ slug: n.slug }));
@@ -17,7 +18,7 @@ export async function generateMetadata({
 }: {
   params: { locale: string; slug: string };
 }): Promise<Metadata> {
-  const note = getResearchNoteBySlug(slug);
+  const note = getResearchNoteBySlug(slug, locale as Locale);
   if (!note) return {};
   return buildMetadata({
     title: note.meta.title,
@@ -27,26 +28,28 @@ export async function generateMetadata({
   });
 }
 
-export default function ResearchNotePage({
+export default async function ResearchNotePage({
   params: { locale, slug }
 }: {
   params: { locale: string; slug: string };
 }) {
   setRequestLocale(locale);
-  const note = getResearchNoteBySlug(slug);
+  const t = await getTranslations('researchNotes');
+  const tc = await getTranslations('common');
+  const note = getResearchNoteBySlug(slug, locale as Locale);
   if (!note) notFound();
 
   return (
     <article className="mx-auto max-w-[68ch] px-5 py-16 sm:px-8">
       <JsonLd
         data={breadcrumbJsonLd([
-          { name: 'Home', item: '/' },
-          { name: 'Research Notes', item: '/research-notes' },
+          { name: tc('breadcrumbHome'), item: '/' },
+          { name: t('title'), item: '/research-notes' },
           { name: note.meta.title, item: `/research-notes/${slug}` }
         ])}
       />
       <Link href="/research-notes" className="font-mono text-xs text-ink-soft hover:text-bronze">
-        ← Research Notes
+        {t('backLink')}
       </Link>
       <p className="mt-6 font-mono text-[11px] uppercase tracking-wider text-bronze">{note.meta.readingTime}</p>
       <h1 className="mt-3 font-serif text-[clamp(26px,3.5vw,38px)] font-medium leading-tight text-ink text-balance">
