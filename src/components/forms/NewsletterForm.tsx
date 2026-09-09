@@ -66,7 +66,7 @@ export function NewsletterForm({
             dark ? 'bg-bronze text-espresso' : 'bg-espresso text-ivory'
           } disabled:opacity-60`}
         >
-          {status === 'loading' ? t('submitting') : 'Subscribe'}
+          {status === 'loading' ? t('submitting') : t('subscribeButton')}
         </button>
       </form>
       {status === 'error' && <p className="mt-2 text-xs text-[#c0503f]">{t('error')}</p>}
