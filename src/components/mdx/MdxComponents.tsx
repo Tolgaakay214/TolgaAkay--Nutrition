@@ -1,4 +1,5 @@
 import type { MDXComponents } from 'mdx/types';
+import { getTranslations } from 'next-intl/server';
 
 export function Callout({ children, title }: { children: React.ReactNode; title?: string }) {
   return (
@@ -9,20 +10,22 @@ export function Callout({ children, title }: { children: React.ReactNode; title?
   );
 }
 
-export function PracticalTakeaway({ children }: { children: React.ReactNode }) {
+export async function PracticalTakeaway({ children }: { children: React.ReactNode }) {
+  const t = await getTranslations('mdx');
   return (
     <div className="practical-takeaway not-prose my-8">
-      <p className="mb-1.5 font-mono text-[11px] uppercase tracking-wider text-bronze">Practical Takeaway</p>
+      <p className="mb-1.5 font-mono text-[11px] uppercase tracking-wider text-bronze">{t('practicalTakeaway')}</p>
       <div className="text-[15px] leading-relaxed text-ink">{children}</div>
     </div>
   );
 }
 
-export function References({ items }: { items: string[] }) {
+export async function References({ items }: { items: string[] }) {
   if (!items?.length) return null;
+  const t = await getTranslations('mdx');
   return (
     <div className="not-prose mt-14 border-t border-line pt-8">
-      <p className="mb-4 font-mono text-[11px] uppercase tracking-wider text-ink-soft">References</p>
+      <p className="mb-4 font-mono text-[11px] uppercase tracking-wider text-ink-soft">{t('references')}</p>
       <ol className="space-y-2.5 text-[13.5px] text-ink-soft">
         {items.map((ref, i) => (
           <li key={i} className="pl-6 -indent-6">
