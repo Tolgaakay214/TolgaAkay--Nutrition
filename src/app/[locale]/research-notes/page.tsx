@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/navigation';
 import { SectionHead } from '@/components/SectionHead';
 import { getAllResearchNotes } from '@/lib/content';
 import { buildMetadata } from '@/lib/seo';
+import type { Locale } from '@/i18n';
 
 export async function generateMetadata({
   params: { locale }
@@ -18,13 +19,14 @@ export async function generateMetadata({
   });
 }
 
-export default function ResearchNotesIndex({ params: { locale } }: { params: { locale: string } }) {
+export default async function ResearchNotesIndex({ params: { locale } }: { params: { locale: string } }) {
   setRequestLocale(locale);
+  const t = await getTranslations('researchNotes');
 
-  const notes = getAllResearchNotes();
+  const notes = getAllResearchNotes(locale as Locale);
   return (
     <div className="mx-auto max-w-content px-5 py-16 sm:px-8">
-      <SectionHead eyebrow="Fast Reads" title="Research Notes" />
+      <SectionHead eyebrow={t('eyebrow')} title={t('title')} />
       <div className="grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
         {notes.map((note) => (
           <Link key={note.slug} href={`/research-notes/${note.slug}`} className="bg-ivory p-7 hover:bg-ivory-2">
