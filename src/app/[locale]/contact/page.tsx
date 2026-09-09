@@ -10,9 +10,10 @@ export async function generateMetadata({
 }: {
   params: { locale: string };
 }): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'seo.contact' });
   return buildMetadata({
-    title: 'Contact',
-    description: 'Get in touch — email, LinkedIn, or choose the right form for your request.',
+    title: t('title'),
+    description: t('description'),
     pathname: '/contact',
     locale
   });
