@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/navigation';
-import { SieveDiagram } from '@/components/SieveDiagram';
+import { HeroPhotos } from '@/components/HeroPhotos';
 import { ExpertiseGrid } from '@/components/ExpertiseGrid';
 import { ArticleCard } from '@/components/ArticleCard';
 import { GuideFeature } from '@/components/GuideFeature';
@@ -95,7 +95,7 @@ export default async function HomePage({
               </div>
             </div>
           </div>
-          <SieveDiagram />
+          <HeroPhotos alt1={t('heroPhotoAlt1')} alt2={t('heroPhotoAlt2')} />
         </div>
       </section>
 
