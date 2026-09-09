@@ -39,6 +39,8 @@
     "ctaWork": "Danışmanlık Al",
     "heroPhotoAlt1": "Serbest padoklu bir ahır koridorunda süt sığırları",
     "heroPhotoAlt2": "Serbest padoklu bir ahırda dinlenen süt sığırları, arka planda yemlik hattı",
+    "ctaDairyCattle": "Süt Sığırcılığı",
+    "ctaBeefCattle": "Besi Sığırcılığı",
     "statFocusAreasLabel": "Odak Alanları",
     "statContentValue": "Haftalık",
     "statContentLabel": "Yeni Teknik İçerik",
@@ -207,6 +209,43 @@
     "stepText2": "Genel bir rapor şablonu değil, açık ve kanıta dayalı bulgular alırsınız.",
     "closing": "Sorunuzun buraya uyup uymadığından emin değilseniz sorun — tahmin etmenizi beklemektense kısa bir görüşme yapmayı tercih ederim."
   },
+  "dairyCattle": {
+    "eyebrow": "Danışmanlık Alanı",
+    "title": "Süt Sığırcılığı Danışmanlığı",
+    "body": "Çalışmalarımın odağı: laktasyondaki ve kuru dönemdeki süt sığırı sürüleri için rasyon değerlendirmesi, geçiş dönemi besleme programları, DCAD, mineral ve kaba yem kararları — sitenin diğer içerikleriyle aynı bilimsel temele dayanıyor.",
+    "areasEyebrow": "Destek Verebileceğim Alanlar",
+    "areas": [
+      "Rasyon Değerlendirmesi",
+      "Geçiş Dönemi Besleme Programları",
+      "DCAD ve Mineral Değerlendirmesi",
+      "TMR ve Partikül Boyutu Analizi",
+      "Yem ve Kaba Yem Analiz Yorumlaması",
+      "Çiftlik Besleme Denetimleri"
+    ],
+    "articlesEyebrow": "İlgili İçerikler",
+    "articlesTitle": "Süt Sığırcılığı Makaleleri",
+    "articlesEmpty": "Süt sığırcılığıyla ilgili yeni makaleler düzenli olarak ekleniyor — yakında tekrar bakabilirsiniz.",
+    "ctaLine": "Rasyon, sürü ya da yem analiziyle ilgili spesifik bir sorunuz mu var?",
+    "ctaButton": "Danışmanlık Al"
+  },
+  "beefCattle": {
+    "eyebrow": "Danışmanlık Alanı",
+    "title": "Besi Sığırcılığı Danışmanlığı",
+    "body": "Besi ve etçi işletmelere de büyüme performansına yönelik rasyon formülasyonu, yem etkinliği ve besi dönemi TMR yönetimi konularında destek veriyorum. Bu, site için daha yeni bir odak alanı — teknik içerikler yakında eklenecek.",
+    "areasEyebrow": "Destek Verebileceğim Alanlar",
+    "areas": [
+      "Büyüme Rasyonu Formülasyonu",
+      "Yem Etkinliği Değerlendirmesi",
+      "Besi Dönemi Besleme Programları",
+      "Yem ve Kaba Yem Analiz Yorumlaması",
+      "Çiftlik Besleme Denetimleri"
+    ],
+    "articlesEyebrow": "İlgili İçerikler",
+    "articlesTitle": "Besi Sığırcılığı Makaleleri",
+    "articlesEmpty": "Besi sığırcılığıyla ilgili makaleler yakında eklenecek — şimdilik bu sayfa besi ve etçi işletmeler için sunduğum danışmanlık desteğini özetliyor.",
+    "ctaLine": "Rasyon, sürü ya da yem analiziyle ilgili spesifik bir sorunuz mu var?",
+    "ctaButton": "Danışmanlık Al"
+  },
   "contact": {
     "eyebrow": "İletişim",
     "title": "İletişim",
@@ -367,6 +406,14 @@
     "consultancy": {
       "title": "Benimle Çalışın",
       "description": "Rasyon değerlendirmesi, geçiş dönemi programları ve teknik değerlendirme — kanıta dayalı, satış odaklı değil."
+    },
+    "dairyCattle": {
+      "title": "Süt Sığırcılığı Danışmanlığı",
+      "description": "Süt sığırı sürüleri için rasyon değerlendirmesi, geçiş dönemi programları ve DCAD/mineral desteği — Tolga Akay'dan."
+    },
+    "beefCattle": {
+      "title": "Besi Sığırcılığı Danışmanlığı",
+      "description": "Besi ve etçi işletmeler için rasyon formülasyonu, yem etkinliği ve besi dönemi besleme desteği."
     },
     "resources": {
       "title": "Kaynaklar",

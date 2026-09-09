@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/navigation';
 import { HeroPhotos } from '@/components/HeroPhotos';
+import { CowIcon, BullIcon } from '@/components/icons/CattleIcons';
 import { ExpertiseGrid } from '@/components/ExpertiseGrid';
 import { ArticleCard } from '@/components/ArticleCard';
 import { GuideFeature } from '@/components/GuideFeature';
@@ -78,6 +79,22 @@ export default async function HomePage({
                 className="focus-ring rounded-sm border border-ink px-[18px] py-[10px] text-sm font-semibold text-ink transition-colors hover:border-bronze hover:text-bronze"
               >
                 {t('ctaAsk')}
+              </Link>
+            </div>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <Link
+                href="/dairy-cattle"
+                className="focus-ring inline-flex items-center gap-2.5 rounded-sm border border-line px-4 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-bronze hover:text-bronze"
+              >
+                <CowIcon className="h-6 w-6 shrink-0 text-bronze" />
+                {t('ctaDairyCattle')}
+              </Link>
+              <Link
+                href="/beef-cattle"
+                className="focus-ring inline-flex items-center gap-2.5 rounded-sm border border-line px-4 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-bronze hover:text-bronze"
+              >
+                <BullIcon className="h-6 w-6 shrink-0 text-bronze" />
+                {t('ctaBeefCattle')}
               </Link>
             </div>
             <div className="mt-13 flex flex-wrap gap-9 pt-5">

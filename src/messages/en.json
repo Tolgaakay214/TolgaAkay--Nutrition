@@ -39,6 +39,8 @@
     "ctaWork": "Get Consultancy",
     "heroPhotoAlt1": "Dairy cows in a freestall barn aisle",
     "heroPhotoAlt2": "Dairy cows resting in a freestall barn, feeding lane in the background",
+    "ctaDairyCattle": "Dairy Cattle",
+    "ctaBeefCattle": "Beef Cattle",
     "statFocusAreasLabel": "Focus Areas",
     "statContentValue": "Weekly",
     "statContentLabel": "New Technical Content",
@@ -207,6 +209,43 @@
     "stepText2": "You receive clear, evidence-based findings — not a generic report template.",
     "closing": "If you're not sure whether your question fits here, ask — I'd rather have a short conversation than have you guess."
   },
+  "dairyCattle": {
+    "eyebrow": "Consultancy Focus",
+    "title": "Dairy Cattle Consultancy",
+    "body": "The core of my work: ration evaluation, transition cow feeding programs, and DCAD, mineral, and forage decisions for lactating and dry dairy herds — grounded in the same research base as the rest of this site.",
+    "areasEyebrow": "Areas I Can Support",
+    "areas": [
+      "Ration Evaluation",
+      "Transition Cow Feeding Programs",
+      "DCAD & Mineral Evaluation",
+      "TMR & Particle Size Assessment",
+      "Feed and Forage Interpretation",
+      "Farm Nutrition Audits"
+    ],
+    "articlesEyebrow": "Related Reading",
+    "articlesTitle": "Dairy Cattle Articles",
+    "articlesEmpty": "New dairy cattle articles are added regularly — check back soon.",
+    "ctaLine": "Have a specific ration, herd, or feed analysis question?",
+    "ctaButton": "Get Consultancy"
+  },
+  "beefCattle": {
+    "eyebrow": "Consultancy Focus",
+    "title": "Beef Cattle Consultancy",
+    "body": "I also work with beef and fattening operations on ration formulation for growth performance, feed efficiency, and TMR management through the finishing period. This is a newer focus area for the site — more technical content is on its way.",
+    "areasEyebrow": "Areas I Can Support",
+    "areas": [
+      "Growth Ration Formulation",
+      "Feed Efficiency Assessment",
+      "Finishing Period Feeding Programs",
+      "Feed and Forage Interpretation",
+      "Farm Nutrition Audits"
+    ],
+    "articlesEyebrow": "Related Reading",
+    "articlesTitle": "Beef Cattle Articles",
+    "articlesEmpty": "Beef cattle articles are on the way — for now, this page describes the consultancy support available for beef and fattening operations.",
+    "ctaLine": "Have a specific ration, herd, or feed analysis question?",
+    "ctaButton": "Get Consultancy"
+  },
   "contact": {
     "eyebrow": "Contact",
     "title": "Contact",
@@ -367,6 +406,14 @@
     "consultancy": {
       "title": "Collaborate With Me",
       "description": "Ration evaluation, transition cow programs, and technical assessment — evidence-based, not sales-driven."
+    },
+    "dairyCattle": {
+      "title": "Dairy Cattle Consultancy",
+      "description": "Ration evaluation, transition cow programs, and DCAD/mineral support for dairy herds — from Tolga Akay."
+    },
+    "beefCattle": {
+      "title": "Beef Cattle Consultancy",
+      "description": "Ration formulation, feed efficiency, and finishing-period nutrition support for beef and fattening operations."
     },
     "resources": {
       "title": "Resources",
