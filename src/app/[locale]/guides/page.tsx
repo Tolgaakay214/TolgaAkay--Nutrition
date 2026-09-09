@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/navigation';
 import { SectionHead } from '@/components/SectionHead';
 import { getAllGuides } from '@/lib/content';
 import { buildMetadata } from '@/lib/seo';
+import type { Locale } from '@/i18n';
 
 export async function generateMetadata({
   params: { locale }
@@ -18,13 +19,14 @@ export async function generateMetadata({
   });
 }
 
-export default function GuidesIndex({ params: { locale } }: { params: { locale: string } }) {
+export default async function GuidesIndex({ params: { locale } }: { params: { locale: string } }) {
   setRequestLocale(locale);
+  const t = await getTranslations('guides');
 
-  const guides = getAllGuides();
+  const guides = getAllGuides(locale as Locale);
   return (
     <div className="mx-auto max-w-content px-5 py-16 sm:px-8">
-      <SectionHead eyebrow="Technical Guides" title="In-depth references, built for the barn and the desk." />
+      <SectionHead eyebrow={t('eyebrow')} title={t('title')} />
       <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
         {guides.map((g) => (
           <Link
@@ -34,7 +36,7 @@ export default function GuidesIndex({ params: { locale } }: { params: { locale: 
           >
             <div>
               <span className="font-mono text-[10.5px] uppercase tracking-wider text-bronze">
-                {g.pages > 0 ? `${g.pages} pages` : 'Coming Soon'}
+                {g.pages > 0 ? t('pagesCount', { count: g.pages }) : t('comingSoon')}
               </span>
               <h3 className="mt-3 font-serif text-xl leading-snug text-ink">{g.title}</h3>
               <p className="mt-2.5 text-sm text-ink-soft">{g.summary}</p>
