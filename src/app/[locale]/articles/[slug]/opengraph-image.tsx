@@ -1,12 +1,13 @@
 import { ImageResponse } from 'next/og';
 import { getArticleBySlug } from '@/lib/content';
+import type { Locale } from '@/i18n';
 
 export const runtime = 'nodejs';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
-export default function OgImage({ params: { slug } }: { params: { slug: string } }) {
-  const article = getArticleBySlug(slug);
+export default function OgImage({ params: { slug, locale } }: { params: { slug: string; locale: string } }) {
+  const article = getArticleBySlug(slug, locale as Locale);
   const title = article?.meta.title ?? 'Tolga Akay';
   const category = article?.meta.category ?? 'Applied Ruminant Nutrition';
 
