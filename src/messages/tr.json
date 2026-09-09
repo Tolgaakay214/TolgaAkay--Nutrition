@@ -20,7 +20,13 @@
     "disclaimer": "Sorumluluk Reddi",
     "rights": "Tüm hakları saklıdır.",
     "disclaimerLine": "Bu sitedeki içerikler eğitim amaçlıdır ve çiftliğe özel veteriner veya beslenme danışmanlığının yerini tutmaz.",
-    "readDisclaimer": "Tam metni okuyun"
+    "readDisclaimer": "Tam metni okuyun",
+    "aboutLink": "Hakkımda",
+    "articlesLink": "Makaleler",
+    "guidesLink": "Teknik Rehberler",
+    "resourcesLink": "Kaynaklar",
+    "askLink": "Soru Sor",
+    "collaborateLink": "Benimle Çalışın"
   },
   "home": {
     "eyebrow": "Uygulamalı Ruminant Beslemesi",
@@ -29,6 +35,11 @@
     "ctaExplore": "Makaleleri Keşfet",
     "ctaAsk": "Soru Sor",
     "ctaWork": "Benimle Çalışın",
+    "statFocusAreasLabel": "Odak Alanları",
+    "statContentValue": "Haftalık",
+    "statContentLabel": "Yeni Teknik İçerik",
+    "statBilingualLabel": "İki Dilli Altyapı",
+    "aboutEyebrow": "Hakkında",
     "aboutStripTitle": "Ben Tolga Akay, araştırma ile saha uygulaması arasında çalışan bir hayvan besleme uzmanıyım.",
     "aboutStripBody": "Halen Global Nutritech'te Ar-Ge Koordinatörü ve Laboratuvar Sorumlusu olarak görev yapıyor, hayvan besleme alanında yüksek lisansıma devam ediyorum. Bu site; rumen fizyolojisi, geçiş dönemi yönetimi, yem değerlendirmesi ve kağıt üzerindeki iyi bir rasyonu yemlikte işleyen bir rasyona dönüştüren günlük kararlar üzerine yazdıklarımın yeri.",
     "readStory": "Hikayenin tamamını okuyun",
@@ -46,11 +57,220 @@
     "collabTitle": "Kısa bir okumadan fazlasını gerektiren bir sorunuz mu var?",
     "collabBody": "Süt çiftlikleri, veteriner hekimler ve yem firmalarıyla rasyon değerlendirmesi, geçiş dönemi programları ve teknik ürün değerlendirmesi üzerine doğrudan çalışıyorum.",
     "collabCta": "Nasıl birlikte çalışabileceğimizi görün",
+    "collabPills": ["Rasyon Değerlendirmesi", "Geçiş Dönemi Programları", "DCAD Değerlendirmesi", "TMR Değerlendirmesi"],
     "newsletterTitle": "Haftalık Ruminant Beslemesi Notları",
     "newsletterBody": "Süt sığırcılığı ve ruminant beslemesi üzerine haftalık araştırma özetleri, saha notları ve yeni teknik içerikler — doğrudan e-postanıza.",
     "newsletterFine": "Spam yok. İstediğiniz zaman abonelikten çıkabilirsiniz.",
     "linkedinEyebrow": "LinkedIn'de Son Paylaşımlar",
-    "linkedinTitle": "Sohbeti bir paylaşım daha takip edin"
+    "linkedinTitle": "Sohbeti bir paylaşım daha takip edin",
+    "linkedinPostLabel": "Paylaşım",
+    "linkedinQuotes": [
+      "\"%41'lik orta elek okuması otomatik olarak 'iyi' anlamına gelmez — hedef aralıklar kaba yem türüne ve dağıtım yöntemine göre değişir.\"",
+      "\"Yemlikteki çoğu şikayetin kökeninde üç fermantasyon değişkeninden biri yatar. Kullandığım tanı sırasını yazdım.\"",
+      "\"DCAD matematiği basittir. Asıl programların başarısız olduğu yer, altındaki mineral analizinin doğru yapılmasıdır.\""
+    ]
+  },
+  "layout": {
+    "skipToContent": "İçeriğe geç"
+  },
+  "common": {
+    "breadcrumbHome": "Ana Sayfa"
+  },
+  "categories": {
+    "Transition Cow Nutrition": "Geçiş Dönemi Beslemesi",
+    "Dairy Nutrition": "Süt Sığırı Beslemesi",
+    "Rumen Function": "Rumen Fonksiyonu",
+    "Feed Additives": "Yem Katkı Maddeleri",
+    "Minerals & DCAD": "Mineraller ve DCAD",
+    "Forage & TMR Management": "Kaba Yem ve TMR Yönetimi",
+    "Metabolic Disorders": "Metabolik Hastalıklar",
+    "Research Reviews": "Araştırma İncelemeleri",
+    "Farm Management": "Çiftlik Yönetimi",
+    "Technical Notes": "Teknik Notlar"
+  },
+  "articles": {
+    "eyebrow": "Bilgi Merkezi",
+    "title": "Makaleler",
+    "allFilter": "Tümü",
+    "comingSoon": "Yakında",
+    "noResults": "Bu kategoride henüz makale yok.",
+    "breadcrumbLabel": "Makaleler",
+    "shareLinkedIn": "LinkedIn'de Paylaş",
+    "shareX": "X'te Paylaş"
+  },
+  "guides": {
+    "eyebrow": "Teknik Rehberler",
+    "title": "Ahır için de masa için de hazırlanmış derinlemesine rehberler.",
+    "comingSoon": "Yakında",
+    "pagesCount": "{count} sayfa",
+    "backLink": "← Teknik Rehberler",
+    "label": "Teknik Rehber",
+    "readInBrowser": "Tarayıcıda okuyun veya PDF olarak görüntüleyin",
+    "readGuideBtn": "Rehberi Oku",
+    "viewPdfBtn": "PDF Görüntüle"
+  },
+  "researchNotes": {
+    "eyebrow": "Hızlı Okumalar",
+    "title": "Araştırma Notları",
+    "backLink": "← Araştırma Notları"
+  },
+  "resources": {
+    "eyebrow": "Ücretsiz Araçlar",
+    "title": "Kaynaklar",
+    "openLink": "Aç →",
+    "backLink": "← Kaynaklar",
+    "pdfPending": "Bu kaynak indirilebilir PDF olarak hazırlanıyor. Bu süre zarfında doğrudan talep edebilirsiniz.",
+    "worksheetPending": "Bu interaktif çalışma sayfası geliştirilme aşamasındadır. Bu süre zarfında mevcut sürümü doğrudan talep edebilirsiniz.",
+    "requestButton": "Bu Kaynağı Talep Edin"
+  },
+  "about": {
+    "eyebrow": "Hakkımda",
+    "title": "Hakkımda",
+    "bodyP1": "Ruminant ve süt sığırı beslemesi alanında çalışan bir hayvan besleme uzmanıyım; halen Global Nutritech'te Ar-Ge Koordinatörü ve Laboratuvar Sorumlusu olarak yem ve yem katkı maddesi geliştirmeyi destekleyen uygulamalı araştırma ve laboratuvar analizlerini yürütüyorum. Çalışmalarım, kontrollü araştırma ile ticari süt çiftliklerinin günlük gerçekleri arasındaki kesişim noktasında yer alıyor — burada yayımladığım her şeye bu bakış açısını taşıyorum.",
+    "bodyP2": "Halen ruminant beslemesi, özellikle süt sığırı besleme sistemleri konusundaki uzmanlığımı derinleştirmeye odaklanan bir yüksek lisans eğitimine devam ediyorum. Bu alana ilgim basit bir hayal kırıklığıyla başladı: yayımlanan bilimin ne kadar azının çiftlikte gerçekten kullanılabilir bir forma dönüştüğü. Bu site, bu boşluğu kapatmak için var — tek tek teknik makale, çalışma sayfası ve dürüst yanıtla.",
+    "altPortrait": "Tolga Akay'ın portresi",
+    "timelineEyebrow": "Zaman Çizelgesi",
+    "timelinePeriod0": "Şu An",
+    "timelineText0": "Ar-Ge Koordinatörü ve Laboratuvar Sorumlusu, Global Nutritech",
+    "timelinePeriod1": "Şu An",
+    "timelineText1": "Yüksek lisans, Hayvan Besleme",
+    "timelinePeriod2": "—",
+    "timelineText2": "Önceki rollerinizi, eğitimlerinizi ve kilometre taşlarınızı buraya ekleyin",
+    "interestsEyebrow": "Araştırma İlgi Alanları",
+    "interests": [
+      "Ruminant Beslemesi",
+      "Süt Sığırı Beslemesi",
+      "Geçiş Dönemi Yönetimi",
+      "Mineral Beslemesi",
+      "DCAD",
+      "Rumen Fizyolojisi",
+      "Yem Katkı Maddeleri",
+      "Yem Verimliliği",
+      "Kaba Yem Değerlendirmesi",
+      "Metabolik Adaptasyon"
+    ]
+  },
+  "ask": {
+    "eyebrow": "İş Birliği",
+    "title": "Bir Besleme Sorunuz mu Var?",
+    "body": "Buraya gönderilen her soruyu kişisel olarak okuyorum. Sorunuz yaygın ve genel nitelikteyse, başkalarına da faydalı olması için (tüm kimlik bilgileri kaldırılarak) bir Araştırma Notu olarak herkese açık şekilde yanıtlayabilirim — sorunuzun gizli kalmasını tercih ediyorsanız formda belirtin. Çiftliğe özel veya acil durumlar için lütfen doğrudan veteriner hekiminize veya çiftlik besleme uzmanınıza da danışın; bu bir destek kaynağıdır, acil durum kanalı değildir.",
+    "faqEyebrow": "Sıkça Sorulanlar",
+    "faqQuestion0": "Ne tür sorular sorabilirim?",
+    "faqAnswer0": "Ruminant ve süt sığırı beslemesi kapsamındaki her şey — rasyon değerlendirmesi, geçiş dönemi beslemesi, DCAD, rumen sağlığı, yem katkı maddeleri, TMR yönetimi ve ilgili konular. Çiftliğe çok özel veya acil durumlar, burada ekleyebileceklerimle birlikte doğrudan veteriner hekiminiz veya çiftlik besleme uzmanınızla daha iyi ele alınır.",
+    "faqQuestion1": "Sorum yayımlanacak mı?",
+    "faqAnswer1": "Yalnızca başkalarına yardımcı olacak kadar genel nitelikteyse ve tüm kimlik bilgileri kaldırılarak. Sorunuzun hiçbir koşulda herkese açık kullanılmasını istemiyorsanız formda \"bunu gizli tut\" seçeneğini işaretleyin.",
+    "faqQuestion2": "Yanıt almam ne kadar sürer?",
+    "faqAnswer2": "Her gönderiyi kişisel olarak okuyorum. Yanıt süresi değişebilir, ancak özel bir yanıt uygun olduğunda birkaç iş günü içinde doğrudan dönmeyi hedefliyorum."
+  },
+  "consultancy": {
+    "eyebrow": "İş Birliği",
+    "title": "Benimle Çalışın",
+    "body": "Süt çiftlikleri, veteriner hekimler, yem firmaları ve tarım işletmeleriyle ruminant beslemesi alanında odaklanmış bir dizi teknik konuda çalışıyorum. Yaklaşımım, yayımlanmış araştırmalarla aynı noktadan başlar: verilere bakmak, varsayımları sorgulamak ve yalnızca kanıtların sizin özel durumunuz için gerçekten desteklediğini önermek.",
+    "areasEyebrow": "Destek Verebileceğim Alanlar",
+    "areas": [
+      "Rasyon Değerlendirmesi",
+      "Geçiş Dönemi Besleme Programları",
+      "DCAD Değerlendirmesi",
+      "Yem Katkı Maddesi Değerlendirmesi",
+      "TMR ve Partikül Boyutu Değerlendirmesi",
+      "Yem ve Kaba Yem Yorumlaması",
+      "Teknik Ürün Değerlendirmesi",
+      "Bilimsel Literatür İncelemeleri",
+      "Ruminant Beslemesi Eğitimi",
+      "Çiftlik Besleme Denetimleri"
+    ],
+    "stepTitle0": "İlk Görüşme",
+    "stepText0": "Durumunuzu anlamak ve doğru eşleşme olup olmadığımızı görmek için kısa bir görüşme veya yazılı iletişim.",
+    "stepTitle1": "Kapsam ve Veri İncelemesi",
+    "stepText1": "Rasyonunuzu, yem analizlerinizi veya elinizdeki belirli soruyu inceliyorum.",
+    "stepTitle2": "Öneriler",
+    "stepText2": "Genel bir rapor şablonu değil, açık ve kanıta dayalı bulgular alırsınız.",
+    "closing": "Sorunuzun buraya uyup uymadığından emin değilseniz sorun — tahmin etmenizi beklemektense kısa bir görüşme yapmayı tercih ederim."
+  },
+  "contact": {
+    "eyebrow": "İletişim",
+    "title": "İletişim",
+    "body": "İhtiyacınıza uyan yolu seçin — mesajınızı tek bir genel gelen kutusundan daha hızlı şekilde doğru yere ulaştırır.",
+    "routeAskTitle": "Soru Sor",
+    "routeAskText": "Genel ruminant beslemesi soruları — her birini kişisel olarak okuyup yanıtlıyorum.",
+    "routeCollabTitle": "İş Birliği / Danışmanlık Talebi",
+    "routeCollabText": "Rasyon değerlendirmesi, geçiş dönemi programları, teknik ürün değerlendirmesi ve ilgili çalışmalar.",
+    "goLink": "Git →",
+    "directHeading": "Ya da doğrudan mesaj gönderin",
+    "directBody": "Yukarıdaki yollara uymayan her şey için — yine de e-posta yoluyla bana ulaşır."
+  },
+  "disclaimer": {
+    "eyebrow": "Yasal",
+    "title": "Eğitim Amaçlı Kullanım Sorumluluk Reddi",
+    "p1": "Bu web sitesinde yayımlanan içerikler — makaleler, teknik rehberler, araştırma notları, indirilebilir kaynaklar ve \"Soru Sor\" özelliği aracılığıyla verilen yanıtlar dahil — yalnızca genel eğitim ve bilgilendirme amaçlıdır. Yazarın, hakemli araştırmalar ve ruminant ile süt sığırı beslemesi alanındaki saha deneyimi hakkındaki profesyonel yorumunu yansıtır.",
+    "p2": "Bu sitedeki hiçbir şey, belirli bir hayvan, sürü veya çiftlik işletmesi için bireyselleştirilmiş veteriner, beslenme veya agronomi tavsiyesi niteliği taşımaz. Besleme programları, rasyon formülasyonları ve sağlıkla ilgili kararlar her zaman sürünüz, yem envanteriniz ve çiftlik koşullarınız hakkında doğrudan bilgi sahibi olan lisanslı bir veteriner hekime veya nitelikli bir hayvan besleme uzmanına danışılarak alınmalıdır.",
+    "p3": "Bu sitede sunulan herhangi bir hesaplayıcı, çalışma sayfası veya kontrol listesinin kullanımı, profesyonel değerlendirmenin yerini tutmaz ve \"olduğu gibi\", hiçbir garanti verilmeksizin sunulur. Yazar ve bu web sitesi, burada bulunan bilgilerin bağımsız olarak uygulanmasından kaynaklanan sonuçlar için hiçbir sorumluluk kabul etmez."
+  },
+  "privacyPolicy": {
+    "eyebrow": "Yasal",
+    "title": "Gizlilik Politikası",
+    "intro": "Bu sayfa, bu sitenin hangi bilgileri, neden topladığını ve nasıl işlediğini açıklar. tolgaakay.com ve alt sayfaları için geçerlidir.",
+    "collectHeading": "Neleri Topluyoruz",
+    "collectItem0": "Soru Sor, İş Birliği veya İletişim formları aracılığıyla gönderdiğiniz bilgiler (ad, e-posta, ülke, meslek ve mesajınız veya sorunuz).",
+    "collectItem1": "Bir soruyla birlikte yüklemeyi tercih ettiğiniz dosyalar (rasyonlar, yem analizleri, fotoğraflar veya belgeler).",
+    "collectItem2": "Bültene abone olursanız e-posta adresiniz.",
+    "collectItem3": "Temel, gizliliğe saygılı analitik olaylar (sayfa görüntülemeleri, yönlendirenler) — siteler arası takip yok, reklam kimlikleri yok.",
+    "whyHeading": "Neden Topluyoruz",
+    "whyBody": "Yalnızca talebinize yanıt vermek, tercih ettiyseniz bülteni göndermek ve sitenin nasıl kullanıldığını toplu olarak anlayarak geliştirmek için. Verileriniz asla satılmaz ve asla reklam amacıyla kullanılmaz.",
+    "howLongHeading": "Ne Kadar Süre Saklıyoruz",
+    "howLongBody": "Form gönderimleri ve varsa ekleri, takip yazışmalarını desteklemek amacıyla en fazla 12 ay saklanır, ardından silinir. tolgaakay616@gmail.com adresine e-posta göndererek istediğiniz zaman daha erken silinmesini talep edebilirsiniz.",
+    "newsletterHeading": "Bülten",
+    "newsletterBody": "Abone olmak, e-posta adresinizi onaylamanızı gerektirir (çift onay). Her bülten e-postasında tek tıkla abonelikten çıkma bağlantısı bulunur.",
+    "fileUploadsHeading": "Dosya Yüklemeleri",
+    "fileUploadsBody": "Bir soruyla birlikte gönderilen ekler gizli olarak saklanır ve herkese açık şekilde erişilebilir değildir. Bu şekilde gönderilen bazı materyaller — rasyonlar, yem analizleri — işletmeniz için ticari açıdan hassas olabilir ve buna göre işlem görür: yalnızca sorunuza yanıt vermek için gerektiğinde görüntülenir.",
+    "rightsHeading": "Haklarınız",
+    "rightsBody": "tolgaakay616@gmail.com adresine e-posta göndererek istediğiniz zaman hakkınızda hangi verilerin tutulduğunu sorabilir, düzeltme talep edebilir veya silinmesini isteyebilirsiniz.",
+    "contactHeading": "İletişim",
+    "contactBody": "Bu politika hakkında sorularınız için: tolgaakay616@gmail.com."
+  },
+  "expertise": {
+    "transitionCow": { "title": "Geçiş Dönemi Beslemesi", "desc": "Kapanma ve doğum sonrası dönemlerde besleme stratejisi." },
+    "dairyCow": { "title": "Süt Sığırı Beslemesi", "desc": "Süt verimi, bileşenler ve sağlık için rasyon tasarımı." },
+    "dcadMineral": { "title": "DCAD ve Mineral Beslemesi", "desc": "Katyon-anyon dengesi ve makro/iz mineral desteği." },
+    "rumenHealth": { "title": "Rumen Sağlığı", "desc": "Fermantasyon kararlılığı ve subklinik asidoz riski." },
+    "feedAdditives": { "title": "Yem Katkı Maddeleri", "desc": "Bypass ve fonksiyonel katkı maddelerinin sonuçları değiştirdiği yerler." },
+    "tmrManagement": { "title": "TMR ve Besleme Yönetimi", "desc": "Karıştırma sırası, nem ve dağıtım tutarlılığı." },
+    "particleSize": { "title": "Partikül Boyutu ve PSPS", "desc": "Penn State Partikül Ayırıcı yorumlaması." },
+    "feedEvaluation": { "title": "Yem Değerlendirmesi", "desc": "NDF, NDFd, nişasta ve HP fraksiyonlarını doğru okumak." },
+    "metabolicDisease": { "title": "Metabolik Hastalık Önleme", "desc": "Ketozis, abomasum deplasmanı ve hipokalsemiye besleme odaklı bakış." },
+    "appliedNutrition": { "title": "Uygulamalı Ruminant Beslemesi", "desc": "Fizyolojiyi ve araştırmayı çiftlik kararlarına dönüştürmek." }
+  },
+  "sieve": {
+    "ariaLabel": "Penn State Partikül Ayırıcı elek dağılımı, örnek gösterim",
+    "headerLabel": "Penn State Ayırıcı",
+    "topScreen": "Üst elek (19 mm)",
+    "middleScreen": "Orta elek (8 mm)",
+    "bottomPan": "Alt tabla (1,18 mm)",
+    "fineParticles": "İnce partiküller"
+  },
+  "search": {
+    "eyebrow": "Ara",
+    "title": "Bilgi Merkezinde Ara",
+    "placeholder": "DCAD, Penn State, mısır silajı, geviş getirme, sodyum bikarbonat…",
+    "noResults": "\"{query}\" için sonuç bulunamadı."
+  },
+  "searchBox": {
+    "inputPlaceholder": "DCAD, Penn State, mısır silajı…",
+    "noResults": "\"{query}\" için sonuç bulunamadı."
+  },
+  "dcadCalculator": {
+    "stageLactating": "Laktasyondaki İnek",
+    "stageCloseUp": "Kapanma Dönemi (Doğum Öncesi)",
+    "fieldSodium": "Sodyum (Na)",
+    "fieldPotassium": "Potasyum (K)",
+    "fieldChloride": "Klor (Cl)",
+    "fieldSulfur": "Kükürt (S)",
+    "percentOfDM": "(KM'nin %'si)",
+    "resultLabel": "DCAD Sonucu",
+    "unitLabel": "meq/kg KM",
+    "withinRange": "Hedef aralık içinde",
+    "outsideRange": "Tipik hedef aralığın dışında",
+    "targetNote": "{label} için tipik hedef: {min} ile {max} meq/kg KM arası. Hedefler ırka, iklime ve program tasarımına göre değişir — bunu başlangıç referansı olarak kullanın, tam bir mineral analizi ve rasyon incelemesinin yerine geçmez."
   },
   "forms": {
     "name": "Ad Soyad",
@@ -61,6 +281,8 @@
     "question": "Sorunuz",
     "message": "Mesajınız",
     "attachments": "Ek Dosya (opsiyonel)",
+    "attachmentsHelp": "Rasyonlar, yem analizleri, fotoğraflar veya belgeler. En fazla 3 dosya, her biri 10MB.",
+    "keepPrivate": "Bu soruyu gizli tutun (anonimleştirilse bile bir Araştırma Notu olarak yayımlamayın).",
     "submit": "Gönder",
     "submitting": "Gönderiliyor…",
     "successAsk": "Teşekkürler — sorunuz alındı. Her gönderiyi kişisel olarak inceliyorum ve gerekli görüldüğünde doğrudan size döneceğim.",
@@ -69,6 +291,13 @@
     "successNewsletter": "Neredeyse tamam — aboneliğinizi onaylamak için gelen kutunuzu kontrol edin.",
     "error": "Gönderim sırasında bir sorun oluştu. Lütfen tekrar deneyin veya doğrudan e-posta gönderin.",
     "consent": "Bunun genel eğitim amaçlı bir bilgilendirme olduğunu, çiftliğe özel bir veteriner veya beslenme tavsiyesi olmadığını anlıyorum.",
-    "emailPlaceholder": "siz@ciftlik.com"
+    "emailPlaceholder": "siz@ciftlik.com",
+    "companyLabel": "Şirket / Çiftlik",
+    "roleLabel": "Görev",
+    "preferredContactLabel": "Tercih Edilen İletişim Yöntemi",
+    "preferredContactPlaceholder": "E-posta, telefon, görüntülü görüşme…",
+    "areaOfInterestLegend": "İlgi Alanı",
+    "descriptionLabel": "İşletmeniz veya sorunuz hakkında bilgi verin",
+    "subscribeButton": "Abone Ol"
   }
 }
