@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/navigation';
 import { Linkedin, Mail } from 'lucide-react';
 import { buildMetadata } from '@/lib/seo';
@@ -18,37 +18,27 @@ export async function generateMetadata({
   });
 }
 
-const routes = [
-  {
-    title: 'Ask a Question',
-    text: 'General ruminant nutrition questions — I read and reply to every one personally.',
-    href: '/ask-a-question'
-  },
-  {
-    title: 'Collaborate / Consultancy Request',
-    text: 'Ration evaluation, transition cow programs, technical product assessment, and related work.',
-    href: '/consultancy'
-  }
-];
-
-export default function ContactPage({ params: { locale } }: { params: { locale: string } }) {
+export default async function ContactPage({ params: { locale } }: { params: { locale: string } }) {
   setRequestLocale(locale);
+  const t = await getTranslations('contact');
+
+  const routes = [
+    { title: t('routeAskTitle'), text: t('routeAskText'), href: '/ask-a-question' },
+    { title: t('routeCollabTitle'), text: t('routeCollabText'), href: '/consultancy' }
+  ];
 
   return (
     <div className="mx-auto max-w-content px-5 py-16 sm:px-8">
-      <p className="eyebrow">Contact</p>
-      <h1 className="mt-4 font-serif text-[clamp(32px,4.5vw,52px)] font-medium leading-tight text-ink">Contact</h1>
-      <p className="mt-6 max-w-[62ch] text-lg text-ink-soft">
-        Choose the route that matches what you need — it gets your message to the right place faster than a single
-        general inbox.
-      </p>
+      <p className="eyebrow">{t('eyebrow')}</p>
+      <h1 className="mt-4 font-serif text-[clamp(32px,4.5vw,52px)] font-medium leading-tight text-ink">{t('title')}</h1>
+      <p className="mt-6 max-w-[62ch] text-lg text-ink-soft">{t('body')}</p>
 
       <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
         {routes.map((r) => (
           <Link key={r.href} href={r.href} className="border border-line p-7 transition-colors hover:border-bronze">
             <h3 className="font-serif text-xl text-ink">{r.title}</h3>
             <p className="mt-2.5 text-sm text-ink-soft">{r.text}</p>
-            <span className="mt-5 inline-block text-sm font-semibold text-ink-soft">Go →</span>
+            <span className="mt-5 inline-block text-sm font-semibold text-ink-soft">{t('goLink')}</span>
           </Link>
         ))}
       </div>
@@ -66,10 +56,8 @@ export default function ContactPage({ params: { locale } }: { params: { locale: 
       </div>
 
       <div className="mt-14 border-t border-line pt-10">
-        <h2 className="font-serif text-2xl text-ink">Or send a message directly</h2>
-        <p className="mt-2.5 max-w-[62ch] text-sm text-ink-soft">
-          For anything that doesn&rsquo;t fit the routes above — it still reaches me by email.
-        </p>
+        <h2 className="font-serif text-2xl text-ink">{t('directHeading')}</h2>
+        <p className="mt-2.5 max-w-[62ch] text-sm text-ink-soft">{t('directBody')}</p>
         <div className="mt-8 max-w-2xl">
           <ContactForm />
         </div>
