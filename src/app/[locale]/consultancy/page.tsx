@@ -8,9 +8,10 @@ export async function generateMetadata({
 }: {
   params: { locale: string };
 }): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'seo.consultancy' });
   return buildMetadata({
-    title: 'Collaborate With Me',
-    description: 'Ration evaluation, transition cow programs, and technical assessment — evidence-based, not sales-driven.',
+    title: t('title'),
+    description: t('description'),
     pathname: '/consultancy',
     locale
   });
