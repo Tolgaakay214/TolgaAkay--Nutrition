@@ -7,9 +7,10 @@ export async function generateMetadata({
 }: {
   params: { locale: string };
 }): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'seo.privacyPolicy' });
   return buildMetadata({
-    title: 'Privacy Policy',
-    description: 'What data this site collects, why, and how it is handled.',
+    title: t('title'),
+    description: t('description'),
     pathname: '/privacy-policy',
     locale
   });
