@@ -1,55 +1,49 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
+
 const items = [
   {
-    title: 'Transition Cow Nutrition',
-    desc: 'Feeding strategy across the close-up and fresh periods.',
+    id: 'transitionCow',
     path: 'M6 20c4-10 16-10 20 0M22 15l4 5-6 1'
   },
   {
-    title: 'Dairy Cow Nutrition',
-    desc: 'Ration design for milk yield, components, and health.',
+    id: 'dairyCow',
     path: 'M16 6c5 7 8 11 8 15a8 8 0 1 1-16 0c0-4 3-8 8-15Z'
   },
   {
-    title: 'DCAD & Mineral Nutrition',
-    desc: 'Cation-anion balance and macro/trace mineral supply.',
+    id: 'dcadMineral',
     path: 'M16 5v22M8 11l-4 8h8l-4-8ZM24 11l-4 8h8l-4-8ZM6 8h20'
   },
   {
-    title: 'Rumen Health',
-    desc: 'Fermentation stability and subacute acidosis risk.',
+    id: 'rumenHealth',
     path: 'M12 15a1.3 1.3 0 1 0 0-2.6 1.3 1.3 0 0 0 0 2.6ZM19 13a1.3 1.3 0 1 0 0-2.6 1.3 1.3 0 0 0 0 2.6ZM16 20a1.3 1.3 0 1 0 0-2.6 1.3 1.3 0 0 0 0 2.6ZM21 19a1.3 1.3 0 1 0 0-2.6 1.3 1.3 0 0 0 0 2.6Z',
     ellipse: true
   },
   {
-    title: 'Feed Additives',
-    desc: 'Where bypass and functional additives change outcomes.',
+    id: 'feedAdditives',
     path: 'M16 13v9',
     capsule: true
   },
   {
-    title: 'TMR & Feeding Management',
-    desc: 'Mix order, moisture, and delivery consistency.',
+    id: 'tmrManagement',
     path: 'M16 6v20M9 10c0 4 14 4 14 8M9 22c0-4 14-4 14-8'
   },
   {
-    title: 'Particle Size & PSPS',
-    desc: 'Penn State Particle Separator interpretation.',
+    id: 'particleSize',
     bars: true
   },
   {
-    title: 'Feed Evaluation',
-    desc: 'Reading NDF, NDFd, starch and CP fractions correctly.',
+    id: 'feedEvaluation',
     path: 'M13 5h6M14 5v6l-6 12a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3l-6-12V5M11 18h10'
   },
   {
-    title: 'Metabolic Disease Prevention',
-    desc: 'Ketosis, DA, and hypocalcemia — a feeding-first view.',
+    id: 'metabolicDisease',
     path: 'M5 18h5l3-8 4 14 3-10 2 4h5',
     open: true
   },
   {
-    title: 'Applied Ruminant Nutrition',
-    desc: 'Turning physiology and research into farm decisions.',
+    id: 'appliedNutrition',
     molecule: true
   }
 ];
@@ -104,15 +98,16 @@ function Icon({ item }: { item: (typeof items)[number] }) {
 }
 
 export function ExpertiseGrid() {
+  const t = useTranslations('expertise');
   return (
     <div className="grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
       {items.map((item) => (
-        <div key={item.title} className="bg-ivory p-7 transition-colors hover:bg-ivory-2">
+        <div key={item.id} className="bg-ivory p-7 transition-colors hover:bg-ivory-2">
           <div className="mb-5 h-[30px] w-[30px] text-bronze">
             <Icon item={item} />
           </div>
-          <h3 className="font-sans text-[16.5px] font-semibold text-ink">{item.title}</h3>
-          <p className="mt-2 text-[13.5px] text-ink-soft">{item.desc}</p>
+          <h3 className="font-sans text-[16.5px] font-semibold text-ink">{t(`${item.id}.title`)}</h3>
+          <p className="mt-2 text-[13.5px] text-ink-soft">{t(`${item.id}.desc`)}</p>
         </div>
       ))}
     </div>
