@@ -9,9 +9,10 @@ export async function generateMetadata({
 }: {
   params: { locale: string };
 }): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'seo.ask' });
   return buildMetadata({
-    title: 'Ask a Question',
-    description: 'Have a ruminant nutrition question? Ask directly — general questions may be answered publicly, anonymized.',
+    title: t('title'),
+    description: t('description'),
     pathname: '/ask-a-question',
     locale
   });
