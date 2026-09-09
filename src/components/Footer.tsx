@@ -25,7 +25,7 @@ export function Footer() {
             </a>
             <a
               href="mailto:tolgaakay616@gmail.com"
-              aria-label="Email"
+              aria-label={t('email')}
               className="text-ink-soft hover:text-bronze"
             >
               <Mail size={18} strokeWidth={1.6} />
