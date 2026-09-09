@@ -11,9 +11,10 @@ export async function generateMetadata({
 }: {
   params: { locale: string };
 }): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'seo.guides' });
   return buildMetadata({
-    title: 'Technical Guides',
-    description: 'In-depth, illustrated technical guides on ruminant nutrition — read in-browser or as PDF.',
+    title: t('title'),
+    description: t('description'),
     pathname: '/guides',
     locale
   });
