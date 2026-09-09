@@ -25,9 +25,10 @@ export async function generateMetadata({
 }: {
   params: { locale: string };
 }): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'seo.articles' });
   return buildMetadata({
-    title: 'Articles',
-    description: 'Peer-reviewed thinking on ruminant nutrition, written for the farm.',
+    title: t('title'),
+    description: t('description'),
     pathname: '/articles',
     locale
   });
