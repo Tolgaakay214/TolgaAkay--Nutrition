@@ -9,9 +9,10 @@ export async function generateMetadata({
 }: {
   params: { locale: string };
 }): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'seo.about' });
   return buildMetadata({
-    title: 'About',
-    description: 'Tolga Akay — animal nutritionist working in ruminant and dairy cattle nutrition.',
+    title: t('title'),
+    description: t('description'),
     pathname: '/about',
     locale
   });
