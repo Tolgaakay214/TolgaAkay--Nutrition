@@ -6,7 +6,8 @@ import { getAllGuides, getGuideBySlug } from '@/lib/content';
 import { buildMetadata, breadcrumbJsonLd } from '@/lib/seo';
 import { JsonLd } from '@/components/JsonLd';
 import { References, mdxComponents } from '@/components/mdx/MdxComponents';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import type { Locale } from '@/i18n';
 
 export function generateStaticParams() {
   return getAllGuides().map((g) => ({ slug: g.slug }));
@@ -17,7 +18,7 @@ export async function generateMetadata({
 }: {
   params: { locale: string; slug: string };
 }): Promise<Metadata> {
-  const guide = getGuideBySlug(slug);
+  const guide = getGuideBySlug(slug, locale as Locale);
   if (!guide) return {};
   return buildMetadata({
     title: guide.meta.title,
@@ -27,13 +28,15 @@ export async function generateMetadata({
   });
 }
 
-export default function GuidePage({
+export default async function GuidePage({
   params: { locale, slug }
 }: {
   params: { locale: string; slug: string };
 }) {
   setRequestLocale(locale);
-  const guide = getGuideBySlug(slug);
+  const t = await getTranslations('guides');
+  const tc = await getTranslations('common');
+  const guide = getGuideBySlug(slug, locale as Locale);
   if (!guide) notFound();
   const { meta, content } = guide;
 
@@ -41,17 +44,17 @@ export default function GuidePage({
     <article className="mx-auto max-w-content px-5 py-16 sm:px-8">
       <JsonLd
         data={breadcrumbJsonLd([
-          { name: 'Home', item: '/' },
-          { name: 'Guides', item: '/guides' },
+          { name: tc('breadcrumbHome'), item: '/' },
+          { name: t('eyebrow'), item: '/guides' },
           { name: meta.title, item: `/guides/${slug}` }
         ])}
       />
       <Link href="/guides" className="font-mono text-xs text-ink-soft hover:text-bronze">
-        ← Technical Guides
+        {t('backLink')}
       </Link>
       <div className="mt-6 flex flex-wrap items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-bronze">
-        <span>Technical Guide</span>
-        {meta.pages > 0 && <><span className="text-ink-soft">·</span><span className="text-ink-soft">{meta.pages} pages</span></>}
+        <span>{t('label')}</span>
+        {meta.pages > 0 && <><span className="text-ink-soft">·</span><span className="text-ink-soft">{t('pagesCount', { count: meta.pages })}</span></>}
       </div>
       <h1 className="mt-3 max-w-[26ch] font-serif text-[clamp(30px,4vw,46px)] font-medium leading-tight text-ink text-balance">
         {meta.title}
