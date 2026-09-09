@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { AskAQuestionForm } from '@/components/forms/AskAQuestionForm';
 import { JsonLd } from '@/components/JsonLd';
 import { buildMetadata, faqJsonLd } from '@/lib/seo';
@@ -17,47 +17,31 @@ export async function generateMetadata({
   });
 }
 
-const faqs = [
-  {
-    question: 'What kinds of questions can I ask?',
-    answer:
-      'Anything within ruminant and dairy cattle nutrition — ration evaluation, transition cow feeding, DCAD, rumen health, feed additives, TMR management, and related topics. Highly farm-specific or urgent situations are better handled directly with your veterinarian or on-farm nutritionist alongside anything I can add here.'
-  },
-  {
-    question: 'Will my question be published?',
-    answer:
-      'Only if it is general enough to help others, and only with all identifying details removed. Check "keep this private" on the form if you would prefer your question isn\'t used publicly under any circumstances.'
-  },
-  {
-    question: 'How long does it take to hear back?',
-    answer: 'I read every submission personally. Response time varies, but I aim to reply directly within a few business days where a specific reply is appropriate.'
-  }
-];
-
-export default function AskAQuestionPage({ params: { locale } }: { params: { locale: string } }) {
+export default async function AskAQuestionPage({ params: { locale } }: { params: { locale: string } }) {
   setRequestLocale(locale);
+  const t = await getTranslations('ask');
+
+  const faqs = [
+    { question: t('faqQuestion0'), answer: t('faqAnswer0') },
+    { question: t('faqQuestion1'), answer: t('faqAnswer1') },
+    { question: t('faqQuestion2'), answer: t('faqAnswer2') }
+  ];
 
   return (
     <div className="mx-auto max-w-content px-5 py-16 sm:px-8">
       <JsonLd data={faqJsonLd(faqs)} />
-      <p className="eyebrow">Collaborate</p>
+      <p className="eyebrow">{t('eyebrow')}</p>
       <h1 className="mt-4 max-w-[18ch] font-serif text-[clamp(32px,4.5vw,52px)] font-medium leading-tight text-ink text-balance">
-        Have a Nutrition Question?
+        {t('title')}
       </h1>
-      <p className="mt-6 max-w-[62ch] text-lg text-ink-soft">
-        I read every question submitted here personally. If yours is a common, general question, I may answer it
-        publicly as a Research Note (with all identifying details removed) so others benefit too — let me know in
-        the form if you&rsquo;d prefer your question stay private. For farm-specific or urgent situations, please
-        also consult your veterinarian or on-farm nutritionist directly; this is a supplementary resource, not an
-        emergency channel.
-      </p>
+      <p className="mt-6 max-w-[62ch] text-lg text-ink-soft">{t('body')}</p>
 
       <div className="mt-12 max-w-2xl border border-line p-6 sm:p-10">
         <AskAQuestionForm />
       </div>
 
       <div className="mt-20 max-w-2xl border-t border-line pt-12">
-        <p className="eyebrow">Frequently Asked</p>
+        <p className="eyebrow">{t('faqEyebrow')}</p>
         <div className="mt-6 space-y-6">
           {faqs.map((f) => (
             <div key={f.question} className="border-b border-line pb-6">
