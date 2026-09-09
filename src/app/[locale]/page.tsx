@@ -9,6 +9,7 @@ import { SectionHead } from '@/components/SectionHead';
 import { NewsletterForm } from '@/components/forms/NewsletterForm';
 import { getAllArticles, getAllGuides, getAllResearchNotes } from '@/lib/content';
 import type { Metadata } from 'next';
+import type { Locale } from '@/i18n';
 import { buildMetadata } from '@/lib/seo';
 
 export async function generateMetadata({
@@ -32,9 +33,13 @@ export default async function HomePage({
 }) {
   setRequestLocale(locale);
   const t = await getTranslations('home');
-  const articles = getAllArticles().filter((a) => a.status === 'published').slice(0, 3);
-  const guide = getAllGuides().find((g) => g.featured) ?? getAllGuides()[0];
-  const notes = getAllResearchNotes().slice(0, 4);
+  const tf = await getTranslations('forms');
+  const articles = getAllArticles(locale as Locale).filter((a) => a.status === 'published').slice(0, 3);
+  const guides = getAllGuides(locale as Locale);
+  const guide = guides.find((g) => g.featured) ?? guides[0];
+  const notes = getAllResearchNotes(locale as Locale).slice(0, 4);
+  const collabPills = t.raw('collabPills') as string[];
+  const linkedinQuotes = t.raw('linkedinQuotes') as string[];
 
   return (
     <>
@@ -70,15 +75,15 @@ export default async function HomePage({
             <div className="mt-13 flex flex-wrap gap-9 pt-5">
               <div className="font-mono">
                 <b className="block text-[22px] font-semibold text-espresso">10</b>
-                <span className="text-[11.5px] uppercase tracking-wider text-ink-soft">Focus Areas</span>
+                <span className="text-[11.5px] uppercase tracking-wider text-ink-soft">{t('statFocusAreasLabel')}</span>
               </div>
               <div className="font-mono">
-                <b className="block text-[22px] font-semibold text-espresso">Weekly</b>
-                <span className="text-[11.5px] uppercase tracking-wider text-ink-soft">New Technical Content</span>
+                <b className="block text-[22px] font-semibold text-espresso">{t('statContentValue')}</b>
+                <span className="text-[11.5px] uppercase tracking-wider text-ink-soft">{t('statContentLabel')}</span>
               </div>
               <div className="font-mono">
                 <b className="block text-[22px] font-semibold text-espresso">EN / TR</b>
-                <span className="text-[11.5px] uppercase tracking-wider text-ink-soft">Bilingual Infrastructure</span>
+                <span className="text-[11.5px] uppercase tracking-wider text-ink-soft">{t('statBilingualLabel')}</span>
               </div>
             </div>
           </div>
@@ -93,7 +98,7 @@ export default async function HomePage({
             <span className="font-mono text-[10.5px] tracking-wider text-ink-soft">PORTRAIT — EDITORIAL STYLE</span>
           </div>
           <div>
-            <p className="eyebrow">About</p>
+            <p className="eyebrow">{t('aboutEyebrow')}</p>
             <h2 className="mt-3.5 font-serif text-[26px] font-medium leading-tight text-ink text-balance">
               {t('aboutStripTitle')}
             </h2>
@@ -178,7 +183,7 @@ export default async function HomePage({
           <div>
             <p className="text-ink-soft">{t('collabBody')}</p>
             <div className="mt-6 flex flex-wrap gap-2.5">
-              {['Ration Evaluation', 'Transition Cow Programs', 'DCAD Evaluation', 'TMR Assessment'].map((a) => (
+              {collabPills.map((a) => (
                 <span key={a} className="rounded-sm border border-line px-3.5 py-2 font-mono text-[13px] text-ink">
                   {a}
                 </span>
@@ -203,9 +208,9 @@ export default async function HomePage({
           </div>
           <NewsletterForm
             dark
-            placeholder="you@farm.com"
+            placeholder={tf('emailPlaceholder')}
             fineText={t('newsletterFine')}
-            successText="You're almost in — check your inbox to confirm."
+            successText={tf('successNewsletter')}
           />
         </div>
       </div>
@@ -216,13 +221,9 @@ export default async function HomePage({
           <p className="eyebrow">{t('linkedinEyebrow')}</p>
           <h2 className="mb-8 mt-3.5 font-serif text-[26px] font-medium text-ink">{t('linkedinTitle')}</h2>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-            {[
-              '"A 41% middle-screen reading isn\'t automatically \'good\' — target ranges shift with forage type and delivery method."',
-              '"Most bunk-life complaints trace back to one of three fermentation variables. Wrote up the diagnostic order I use."',
-              '"DCAD math is simple. Getting the mineral analysis right underneath it is where programs actually fail."'
-            ].map((quote, i) => (
+            {linkedinQuotes.map((quote, i) => (
               <div key={i} className="border border-line p-5">
-                <span className="eyebrow text-[10.5px]">Post</span>
+                <span className="eyebrow text-[10.5px]">{t('linkedinPostLabel')}</span>
                 <p className="mt-2.5 text-sm leading-relaxed text-ink">{quote}</p>
                 <p className="mt-3.5 font-mono text-[11px] text-ink-soft">linkedin.com/in/tolgaakay-nutrition</p>
               </div>
