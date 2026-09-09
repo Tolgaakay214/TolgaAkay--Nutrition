@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/navigation';
 import { Search, X } from 'lucide-react';
 
@@ -12,6 +13,8 @@ interface Result {
 }
 
 export function SearchBox({ placeholder }: { placeholder: string }) {
+  const t = useTranslations('searchBox');
+  const locale = useLocale();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<Result[]>([]);
@@ -25,7 +28,7 @@ export function SearchBox({ placeholder }: { placeholder: string }) {
     const controller = new AbortController();
     const timeout = setTimeout(async () => {
       try {
-        const res = await fetch(`/api/search?q=${encodeURIComponent(query)}`, {
+        const res = await fetch(`/api/search?q=${encodeURIComponent(query)}&locale=${locale}`, {
           signal: controller.signal
         });
         const data = await res.json();
@@ -38,7 +41,7 @@ export function SearchBox({ placeholder }: { placeholder: string }) {
       clearTimeout(timeout);
       controller.abort();
     };
-  }, [query]);
+  }, [query, locale]);
 
   useEffect(() => {
     function onClick(e: MouseEvent) {
@@ -65,7 +68,7 @@ export function SearchBox({ placeholder }: { placeholder: string }) {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="DCAD, Penn State, corn silage…"
+            placeholder={t('inputPlaceholder')}
             className="focus-ring w-full border border-line bg-ivory-2 px-3 py-2 font-sans text-sm text-ink placeholder:text-ink-soft"
           />
           {results.length > 0 && (
@@ -87,7 +90,7 @@ export function SearchBox({ placeholder }: { placeholder: string }) {
             </ul>
           )}
           {query && results.length === 0 && (
-            <p className="mt-3 px-1 text-sm text-ink-soft">No results for &ldquo;{query}&rdquo;.</p>
+            <p className="mt-3 px-1 text-sm text-ink-soft">{t('noResults', { query })}</p>
           )}
         </div>
       )}
