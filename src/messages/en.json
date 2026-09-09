@@ -7,7 +7,8 @@
     "about": "About",
     "collaborate": "Collaborate",
     "askQuestion": "Ask a Question",
-    "search": "Search"
+    "search": "Search",
+    "menu": "Menu"
   },
   "footer": {
     "tagline": "Applied ruminant nutrition — science-based feeding decisions, from research to the farm.",
@@ -16,6 +17,7 @@
     "legal": "Legal",
     "contact": "Contact",
     "linkedin": "LinkedIn",
+    "email": "Email",
     "privacy": "Privacy Policy",
     "disclaimer": "Disclaimer",
     "rights": "All rights reserved.",
@@ -43,6 +45,7 @@
     "aboutStripTitle": "I'm Tolga Akay, an animal nutritionist working at the intersection of research and practice.",
     "aboutStripBody": "Currently R&D Coordinator and Lab Manager at Global Nutritech, and pursuing graduate studies in animal nutrition. This site is where I publish the technical thinking that doesn't fit in a lab report: rumen physiology, transition cow management, feed evaluation, and the everyday judgment calls that separate a good ration on paper from one that works in the bunk.",
     "readStory": "Read the full story",
+    "portraitCaption": "PORTRAIT — EDITORIAL STYLE",
     "focusEyebrow": "Areas of Focus",
     "focusTitle": "Ten places where research meets the ration.",
     "articlesEyebrow": "Knowledge Hub",
@@ -246,7 +249,8 @@
     "topScreen": "Top screen (19 mm)",
     "middleScreen": "Middle screen (8 mm)",
     "bottomPan": "Bottom pan (1.18 mm)",
-    "fineParticles": "Fine particles"
+    "fineParticles": "Fine particles",
+    "sampleLabel": "Sample #114"
   },
   "search": {
     "eyebrow": "Search",
@@ -299,5 +303,55 @@
     "areaOfInterestLegend": "Area of Interest",
     "descriptionLabel": "Tell me about your operation or question",
     "subscribeButton": "Subscribe"
+  },
+  "mdx": {
+    "practicalTakeaway": "Practical Takeaway",
+    "references": "References"
+  },
+  "seo": {
+    "home": {
+      "title": "Applied Ruminant Nutrition",
+      "description": "Science-based ruminant nutrition — dairy cow feeding, transition cow management, DCAD, rumen health, and applied research, from Tolga Akay."
+    },
+    "about": {
+      "title": "About",
+      "description": "Tolga Akay — animal nutritionist working in ruminant and dairy cattle nutrition."
+    },
+    "consultancy": {
+      "title": "Collaborate With Me",
+      "description": "Ration evaluation, transition cow programs, and technical assessment — evidence-based, not sales-driven."
+    },
+    "resources": {
+      "title": "Resources",
+      "description": "Free calculators, checklists, and worksheets for ruminant nutrition."
+    },
+    "disclaimer": {
+      "title": "Disclaimer",
+      "description": "Educational purpose disclaimer for content published on this site."
+    },
+    "guides": {
+      "title": "Technical Guides",
+      "description": "In-depth, illustrated technical guides on ruminant nutrition — read in-browser or as PDF."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Get in touch — email, LinkedIn, or choose the right form for your request."
+    },
+    "privacyPolicy": {
+      "title": "Privacy Policy",
+      "description": "What data this site collects, why, and how it is handled."
+    },
+    "ask": {
+      "title": "Ask a Question",
+      "description": "Have a ruminant nutrition question? Ask directly — general questions may be answered publicly, anonymized."
+    },
+    "articles": {
+      "title": "Articles",
+      "description": "Peer-reviewed thinking on ruminant nutrition, written for the farm."
+    },
+    "researchNotes": {
+      "title": "Research Notes",
+      "description": "Short, sharp ideas on ruminant nutrition — one to three minutes each."
+    }
   }
 }
