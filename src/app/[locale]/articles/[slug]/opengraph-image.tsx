@@ -1,15 +1,17 @@
 import { ImageResponse } from 'next/og';
 import { getArticleBySlug } from '@/lib/content';
+import { getTranslations } from 'next-intl/server';
 import type { Locale } from '@/i18n';
 
 export const runtime = 'nodejs';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
-export default function OgImage({ params: { slug, locale } }: { params: { slug: string; locale: string } }) {
+export default async function OgImage({ params: { slug, locale } }: { params: { slug: string; locale: string } }) {
   const article = getArticleBySlug(slug, locale as Locale);
   const title = article?.meta.title ?? 'Tolga Akay';
-  const category = article?.meta.category ?? 'Applied Ruminant Nutrition';
+  const tCat = await getTranslations({ locale, namespace: 'categories' });
+  const category = article ? tCat(article.meta.category) : 'Applied Ruminant Nutrition';
 
   return new ImageResponse(
     (
