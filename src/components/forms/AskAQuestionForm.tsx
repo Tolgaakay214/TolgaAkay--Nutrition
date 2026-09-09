@@ -102,12 +102,12 @@ export function AskAQuestionForm() {
           accept=".pdf,.jpg,.jpeg,.png,.xlsx,.docx"
           className="block w-full text-sm text-ink-soft file:mr-4 file:border file:border-line file:bg-ivory-2 file:px-4 file:py-2 file:text-sm file:text-ink"
         />
-        <p className="mt-1.5 text-xs text-ink-soft">Rations, feed analyses, photos or documents. Up to 3 files, 10MB each.</p>
+        <p className="mt-1.5 text-xs text-ink-soft">{t('attachmentsHelp')}</p>
       </div>
 
       <label className="flex items-start gap-2.5 text-sm text-ink-soft">
         <input type="checkbox" name="keepPrivate" className="mt-1" />
-        Keep this question private (don&rsquo;t publish it as a Research Note, even anonymized).
+        {t('keepPrivate')}
       </label>
 
       <label className="flex items-start gap-2.5 text-sm text-ink-soft">
