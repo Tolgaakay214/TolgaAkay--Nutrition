@@ -46,6 +46,7 @@
     "aboutStripBody": "Halen Global Nutritech'te Ar-Ge Koordinatörü ve Laboratuvar Sorumlusu olarak görev yapıyor, hayvan besleme alanında yüksek lisansıma devam ediyorum. Bu site; rumen fizyolojisi, geçiş dönemi yönetimi, yem değerlendirmesi ve kağıt üzerindeki iyi bir rasyonu yemlikte işleyen bir rasyona dönüştüren günlük kararlar üzerine yazdıklarımın yeri.",
     "readStory": "Hikayenin tamamını okuyun",
     "portraitCaption": "PORTRE — EDİTORYAL STİL",
+    "portraitAlt": "Tolga Akay portresi",
     "focusEyebrow": "Uzmanlık Alanları",
     "focusTitle": "Araştırmanın rasyonla buluştuğu on alan.",
     "articlesEyebrow": "Bilgi Merkezi",
@@ -60,18 +61,32 @@
     "collabTitle": "Kısa bir okumadan fazlasını gerektiren bir sorunuz mu var?",
     "collabBody": "Süt çiftlikleri, veteriner hekimler ve yem firmalarıyla rasyon değerlendirmesi, geçiş dönemi programları ve teknik ürün değerlendirmesi üzerine doğrudan çalışıyorum.",
     "collabCta": "Nasıl birlikte çalışabileceğimizi görün",
-    "collabPills": ["Rasyon Değerlendirmesi", "Geçiş Dönemi Programları", "DCAD Değerlendirmesi", "TMR Değerlendirmesi"],
+    "collabPills": [
+      "Rasyon Değerlendirmesi",
+      "Geçiş Dönemi Programları",
+      "DCAD Değerlendirmesi",
+      "TMR Değerlendirmesi"
+    ],
     "newsletterTitle": "Haftalık Ruminant Beslemesi Notları",
     "newsletterBody": "Süt sığırcılığı ve ruminant beslemesi üzerine haftalık araştırma özetleri, saha notları ve yeni teknik içerikler — doğrudan e-postanıza.",
     "newsletterFine": "Spam yok. İstediğiniz zaman abonelikten çıkabilirsiniz.",
     "linkedinEyebrow": "LinkedIn'de Son Paylaşımlar",
     "linkedinTitle": "Sohbeti bir paylaşım daha takip edin",
     "linkedinPostLabel": "Paylaşım",
-    "linkedinQuotes": [
-      "\"%41'lik orta elek okuması otomatik olarak 'iyi' anlamına gelmez — hedef aralıklar kaba yem türüne ve dağıtım yöntemine göre değişir.\"",
-      "\"Yemlikteki çoğu şikayetin kökeninde üç fermantasyon değişkeninden biri yatar. Kullandığım tanı sırasını yazdım.\"",
-      "\"DCAD matematiği basittir. Asıl programların başarısız olduğu yer, altındaki mineral analizinin doğru yapılmasıdır.\""
-    ]
+    "linkedinPosts": [
+      {
+        "articleSlug": "penn-state-particle-separator",
+        "quote": "TMR'niz gerçekten ineklerin yediği rasyon mu? Kağıt üzerinde dengeli görünen bir rasyonun fiziksel yapısı çok farklı bir hikaye anlatabilir — partikül boyutu ayrışmayı, rüminasyonu ve rumen ortamını doğrudan etkiler.",
+        "linkedinUrl": "https://www.linkedin.com/feed/update/urn:li:activity:7502803117512716288/"
+      },
+      {
+        "articleSlug": "dcad-transition-cows",
+        "quote": "Doğumdan önceki son üç haftada olanlar, bir sonraki laktasyonun tamamını şekillendirebilir. Anyonik besleme genellikle sadece “süt humması önleme” olarak anılır, oysa geçiş dönemi beslemesindeki rolü çok daha kapsamlıdır.",
+        "linkedinUrl": "https://www.linkedin.com/feed/update/urn:li:activity:7501339512057270272/"
+      }
+    ],
+    "linkedinReadArticle": "Makalenin tamamını oku",
+    "linkedinViewPost": "LinkedIn’da gönderiyi gör"
   },
   "layout": {
     "skipToContent": "İçeriğe geç"
@@ -232,16 +247,46 @@
     "contactBody": "Bu politika hakkında sorularınız için: tolgaakay616@gmail.com."
   },
   "expertise": {
-    "transitionCow": { "title": "Geçiş Dönemi Beslemesi", "desc": "Kapanma ve doğum sonrası dönemlerde besleme stratejisi." },
-    "dairyCow": { "title": "Süt Sığırı Beslemesi", "desc": "Süt verimi, bileşenler ve sağlık için rasyon tasarımı." },
-    "dcadMineral": { "title": "DCAD ve Mineral Beslemesi", "desc": "Katyon-anyon dengesi ve makro/iz mineral desteği." },
-    "rumenHealth": { "title": "Rumen Sağlığı", "desc": "Fermantasyon kararlılığı ve subklinik asidoz riski." },
-    "feedAdditives": { "title": "Yem Katkı Maddeleri", "desc": "Bypass ve fonksiyonel katkı maddelerinin sonuçları değiştirdiği yerler." },
-    "tmrManagement": { "title": "TMR ve Besleme Yönetimi", "desc": "Karıştırma sırası, nem ve dağıtım tutarlılığı." },
-    "particleSize": { "title": "Partikül Boyutu ve PSPS", "desc": "Penn State Partikül Ayırıcı yorumlaması." },
-    "feedEvaluation": { "title": "Yem Değerlendirmesi", "desc": "NDF, NDFd, nişasta ve HP fraksiyonlarını doğru okumak." },
-    "metabolicDisease": { "title": "Metabolik Hastalık Önleme", "desc": "Ketozis, abomasum deplasmanı ve hipokalsemiye besleme odaklı bakış." },
-    "appliedNutrition": { "title": "Uygulamalı Ruminant Beslemesi", "desc": "Fizyolojiyi ve araştırmayı çiftlik kararlarına dönüştürmek." }
+    "transitionCow": {
+      "title": "Geçiş Dönemi Beslemesi",
+      "desc": "Kapanma ve doğum sonrası dönemlerde besleme stratejisi."
+    },
+    "dairyCow": {
+      "title": "Süt Sığırı Beslemesi",
+      "desc": "Süt verimi, bileşenler ve sağlık için rasyon tasarımı."
+    },
+    "dcadMineral": {
+      "title": "DCAD ve Mineral Beslemesi",
+      "desc": "Katyon-anyon dengesi ve makro/iz mineral desteği."
+    },
+    "rumenHealth": {
+      "title": "Rumen Sağlığı",
+      "desc": "Fermantasyon kararlılığı ve subklinik asidoz riski."
+    },
+    "feedAdditives": {
+      "title": "Yem Katkı Maddeleri",
+      "desc": "Bypass ve fonksiyonel katkı maddelerinin sonuçları değiştirdiği yerler."
+    },
+    "tmrManagement": {
+      "title": "TMR ve Besleme Yönetimi",
+      "desc": "Karıştırma sırası, nem ve dağıtım tutarlılığı."
+    },
+    "particleSize": {
+      "title": "Partikül Boyutu ve PSPS",
+      "desc": "Penn State Partikül Ayırıcı yorumlaması."
+    },
+    "feedEvaluation": {
+      "title": "Yem Değerlendirmesi",
+      "desc": "NDF, NDFd, nişasta ve HP fraksiyonlarını doğru okumak."
+    },
+    "metabolicDisease": {
+      "title": "Metabolik Hastalık Önleme",
+      "desc": "Ketozis, abomasum deplasmanı ve hipokalsemiye besleme odaklı bakış."
+    },
+    "appliedNutrition": {
+      "title": "Uygulamalı Ruminant Beslemesi",
+      "desc": "Fizyolojiyi ve araştırmayı çiftlik kararlarına dönüştürmek."
+    }
   },
   "sieve": {
     "ariaLabel": "Penn State Partikül Ayırıcı elek dağılımı, örnek gösterim",

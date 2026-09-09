@@ -46,6 +46,7 @@
     "aboutStripBody": "Currently R&D Coordinator and Lab Manager at Global Nutritech, and pursuing graduate studies in animal nutrition. This site is where I publish the technical thinking that doesn't fit in a lab report: rumen physiology, transition cow management, feed evaluation, and the everyday judgment calls that separate a good ration on paper from one that works in the bunk.",
     "readStory": "Read the full story",
     "portraitCaption": "PORTRAIT — EDITORIAL STYLE",
+    "portraitAlt": "Tolga Akay, portrait",
     "focusEyebrow": "Areas of Focus",
     "focusTitle": "Ten places where research meets the ration.",
     "articlesEyebrow": "Knowledge Hub",
@@ -60,18 +61,32 @@
     "collabTitle": "Have a question that needs more than a quick read?",
     "collabBody": "I work directly with dairy farms, veterinarians, and feed companies on ration evaluation, transition cow programs, and technical product assessment.",
     "collabCta": "See how we can work together",
-    "collabPills": ["Ration Evaluation", "Transition Cow Programs", "DCAD Evaluation", "TMR Assessment"],
+    "collabPills": [
+      "Ration Evaluation",
+      "Transition Cow Programs",
+      "DCAD Evaluation",
+      "TMR Assessment"
+    ],
     "newsletterTitle": "Weekly Ruminant Nutrition Notes",
     "newsletterBody": "Weekly research insights, practical feeding notes, and new technical articles on dairy and ruminant nutrition — straight to your inbox.",
     "newsletterFine": "No spam. Unsubscribe anytime.",
     "linkedinEyebrow": "Recent on LinkedIn",
     "linkedinTitle": "Following the conversation, one post at a time",
     "linkedinPostLabel": "Post",
-    "linkedinQuotes": [
-      "\"A 41% middle-screen reading isn't automatically 'good' — target ranges shift with forage type and delivery method.\"",
-      "\"Most bunk-life complaints trace back to one of three fermentation variables. Wrote up the diagnostic order I use.\"",
-      "\"DCAD math is simple. Getting the mineral analysis right underneath it is where programs actually fail.\""
-    ]
+    "linkedinPosts": [
+      {
+        "articleSlug": "penn-state-particle-separator",
+        "quote": "Is your TMR really the ration your cows are eating? A ration may look balanced on paper, but its physical structure can tell a different story — particle size drives sorting, rumination and rumen conditions.",
+        "linkedinUrl": "https://www.linkedin.com/feed/update/urn:li:activity:7502803117512716288/"
+      },
+      {
+        "articleSlug": "dcad-transition-cows",
+        "quote": "What happens in the last three weeks before calving can shape the entire next lactation. Anionic feeding is often reduced to “milk fever prevention,” but its role in transition cow nutrition goes much further.",
+        "linkedinUrl": "https://www.linkedin.com/feed/update/urn:li:activity:7501339512057270272/"
+      }
+    ],
+    "linkedinReadArticle": "Read the full article",
+    "linkedinViewPost": "View post on LinkedIn"
   },
   "layout": {
     "skipToContent": "Skip to content"
@@ -232,16 +247,46 @@
     "contactBody": "Questions about this policy: tolgaakay616@gmail.com."
   },
   "expertise": {
-    "transitionCow": { "title": "Transition Cow Nutrition", "desc": "Feeding strategy across the close-up and fresh periods." },
-    "dairyCow": { "title": "Dairy Cow Nutrition", "desc": "Ration design for milk yield, components, and health." },
-    "dcadMineral": { "title": "DCAD & Mineral Nutrition", "desc": "Cation-anion balance and macro/trace mineral supply." },
-    "rumenHealth": { "title": "Rumen Health", "desc": "Fermentation stability and subacute acidosis risk." },
-    "feedAdditives": { "title": "Feed Additives", "desc": "Where bypass and functional additives change outcomes." },
-    "tmrManagement": { "title": "TMR & Feeding Management", "desc": "Mix order, moisture, and delivery consistency." },
-    "particleSize": { "title": "Particle Size & PSPS", "desc": "Penn State Particle Separator interpretation." },
-    "feedEvaluation": { "title": "Feed Evaluation", "desc": "Reading NDF, NDFd, starch and CP fractions correctly." },
-    "metabolicDisease": { "title": "Metabolic Disease Prevention", "desc": "Ketosis, DA, and hypocalcemia — a feeding-first view." },
-    "appliedNutrition": { "title": "Applied Ruminant Nutrition", "desc": "Turning physiology and research into farm decisions." }
+    "transitionCow": {
+      "title": "Transition Cow Nutrition",
+      "desc": "Feeding strategy across the close-up and fresh periods."
+    },
+    "dairyCow": {
+      "title": "Dairy Cow Nutrition",
+      "desc": "Ration design for milk yield, components, and health."
+    },
+    "dcadMineral": {
+      "title": "DCAD & Mineral Nutrition",
+      "desc": "Cation-anion balance and macro/trace mineral supply."
+    },
+    "rumenHealth": {
+      "title": "Rumen Health",
+      "desc": "Fermentation stability and subacute acidosis risk."
+    },
+    "feedAdditives": {
+      "title": "Feed Additives",
+      "desc": "Where bypass and functional additives change outcomes."
+    },
+    "tmrManagement": {
+      "title": "TMR & Feeding Management",
+      "desc": "Mix order, moisture, and delivery consistency."
+    },
+    "particleSize": {
+      "title": "Particle Size & PSPS",
+      "desc": "Penn State Particle Separator interpretation."
+    },
+    "feedEvaluation": {
+      "title": "Feed Evaluation",
+      "desc": "Reading NDF, NDFd, starch and CP fractions correctly."
+    },
+    "metabolicDisease": {
+      "title": "Metabolic Disease Prevention",
+      "desc": "Ketosis, DA, and hypocalcemia — a feeding-first view."
+    },
+    "appliedNutrition": {
+      "title": "Applied Ruminant Nutrition",
+      "desc": "Turning physiology and research into farm decisions."
+    }
   },
   "sieve": {
     "ariaLabel": "Penn State Particle Separator screen distribution, illustrative sample",

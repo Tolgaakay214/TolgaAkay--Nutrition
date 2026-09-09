@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/navigation';
 import { SieveDiagram } from '@/components/SieveDiagram';
@@ -7,7 +8,7 @@ import { GuideFeature } from '@/components/GuideFeature';
 import { ResearchNotesStrip } from '@/components/ResearchNotesStrip';
 import { SectionHead } from '@/components/SectionHead';
 import { NewsletterForm } from '@/components/forms/NewsletterForm';
-import { getAllArticles, getAllGuides, getAllResearchNotes } from '@/lib/content';
+import { getAllArticles, getAllGuides, getAllResearchNotes, getArticleBySlug } from '@/lib/content';
 import type { Metadata } from 'next';
 import type { Locale } from '@/i18n';
 import { buildMetadata } from '@/lib/seo';
@@ -39,7 +40,14 @@ export default async function HomePage({
   const guide = guides.find((g) => g.featured) ?? guides[0];
   const notes = getAllResearchNotes(locale as Locale).slice(0, 4);
   const collabPills = t.raw('collabPills') as string[];
-  const linkedinQuotes = t.raw('linkedinQuotes') as string[];
+  const linkedinPosts = (
+    t.raw('linkedinPosts') as { articleSlug: string; quote: string; linkedinUrl: string }[]
+  )
+    .map((post) => {
+      const article = getArticleBySlug(post.articleSlug, locale as Locale);
+      return article ? { ...post, article } : null;
+    })
+    .filter((post): post is { articleSlug: string; quote: string; linkedinUrl: string; article: NonNullable<ReturnType<typeof getArticleBySlug>> } => post !== null);
 
   return (
     <>
@@ -94,8 +102,15 @@ export default async function HomePage({
       {/* About strip */}
       <section className="border-b border-line px-5 py-[88px] sm:px-8">
         <div className="mx-auto grid max-w-content grid-cols-1 items-start gap-11 sm:grid-cols-[220px_1fr]">
-          <div className="flex aspect-[4/5] items-end border border-line bg-[repeating-linear-gradient(135deg,var(--ivory-2),var(--ivory-2)_8px,var(--ivory)_8px,var(--ivory)_9px)] p-3.5">
-            <span className="font-mono text-[10.5px] tracking-wider text-ink-soft">{t('portraitCaption')}</span>
+          <div className="relative aspect-[4/5] overflow-hidden border border-line">
+            <Image
+              src="/images/tolga-akay-portrait.jpg"
+              alt={t('portraitAlt')}
+              fill
+              sizes="220px"
+              className="object-cover"
+              priority
+            />
           </div>
           <div>
             <p className="eyebrow">{t('aboutEyebrow')}</p>
@@ -220,12 +235,25 @@ export default async function HomePage({
         <div className="mx-auto max-w-content">
           <p className="eyebrow">{t('linkedinEyebrow')}</p>
           <h2 className="mb-8 mt-3.5 font-serif text-[26px] font-medium text-ink">{t('linkedinTitle')}</h2>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-            {linkedinQuotes.map((quote, i) => (
-              <div key={i} className="border border-line p-5">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            {linkedinPosts.map((post) => (
+              <div key={post.articleSlug} className="flex flex-col border border-line p-6 transition-colors hover:border-bronze">
                 <span className="eyebrow text-[10.5px]">{t('linkedinPostLabel')}</span>
-                <p className="mt-2.5 text-sm leading-relaxed text-ink">{quote}</p>
-                <p className="mt-3.5 font-mono text-[11px] text-ink-soft">linkedin.com/in/tolgaakay-nutrition</p>
+                <p className="mt-3 text-[15px] leading-relaxed text-ink">{post.quote}</p>
+                <h3 className="mt-4 font-serif text-[17px] font-medium leading-snug text-ink">{post.article.meta.title}</h3>
+                <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-line pt-4 font-mono text-[11.5px] uppercase tracking-wider">
+                  <Link href={`/articles/${post.articleSlug}`} className="focus-ring text-bronze hover:text-bronze-deep">
+                    {t('linkedinReadArticle')} →
+                  </Link>
+                  <a
+                    href={post.linkedinUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="focus-ring text-ink-soft hover:text-bronze"
+                  >
+                    {t('linkedinViewPost')} ↗
+                  </a>
+                </div>
               </div>
             ))}
           </div>
