@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "dcad-calculator",
+    "title": "DCAD Hesaplayıcı",
+    "format": "İnteraktif",
+    "description": "Mineral girdilerinden diyet katyon-anyon farkını hesaplar; laktasyon ve kapanma dönemi rasyonları için hedef aralıklarla birlikte.",
+    "interactive": true
+  },
+  {
+    "slug": "dry-matter-calculator",
+    "title": "Kuru Madde Hesaplayıcı",
+    "format": "İnteraktif",
+    "description": "Rasyon bileşenleri için yaş ağırlıkları kuru madde bazına dönüştürür.",
+    "interactive": true
+  },
+  {
+    "slug": "penn-state-separator-worksheet",
+    "title": "Penn State Partikül Ayırıcı Çalışma Sayfası",
+    "format": "Çalışma Sayfası",
+    "description": "Çiftlikte partikül boyutu örneklemesi için bir kayıt formu ve yorumlama rehberi.",
+    "interactive": false
+  },
+  {
+    "slug": "tmr-audit-checklist",
+    "title": "TMR Denetim Kontrol Listesi",
+    "format": "PDF",
+    "description": "Çiftlikte TMR tutarlılığı ve karıştırma sırası için yapılandırılmış bir kontrol listesi.",
+    "interactive": false
+  },
+  {
+    "slug": "transition-cow-checklist",
+    "title": "Geçiş Dönemi Kontrol Listesi",
+    "format": "PDF",
+    "description": "Kapanma döneminden doğum sonrası döneme besleme ve izleme kontrol listesi.",
+    "interactive": false
+  },
+  {
+    "slug": "feed-evaluation-sheet",
+    "title": "Yem Değerlendirme Sayfası",
+    "format": "Çalışma Sayfası",
+    "description": "Bir laboratuvar yem analizi raporunu yorumlamak için yapılandırılmış bir şablon.",
+    "interactive": false
+  },
+  {
+    "slug": "urine-ph-recording-sheet",
+    "title": "İdrar pH Kayıt Sayfası",
+    "format": "PDF",
+    "description": "Hedef aralıklarla birlikte kapanma dönemi ineği izleme günlüğü.",
+    "interactive": false
+  },
+  {
+    "slug": "ration-sampling-protocol",
+    "title": "Rasyon Örnekleme Protokolü",
+    "format": "PDF",
+    "description": "Temsili yem analizi için adım adım doğru örnekleme tekniği.",
+    "interactive": false
+  },
+  {
+    "slug": "body-condition-scoring-reference",
+    "title": "Vücut Kondisyon Skoru Referans Sayfası",
+    "format": "PDF",
+    "description": "Geçiş dönemi hedeflerine göre hazırlanmış görsel skorlama rehberi.",
+    "interactive": false
+  },
+  {
+    "slug": "heat-stress-ration-worksheet",
+    "title": "Isı Stresi Rasyon Ayarlama Çalışma Sayfası",
+    "format": "Çalışma Sayfası",
+    "description": "Yaz rasyonlarında DCAD ve enerji yoğunluğunu ayarlamak için bir çalışma sayfası.",
+    "interactive": false
+  }
+]
