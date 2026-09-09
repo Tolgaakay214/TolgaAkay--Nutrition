@@ -22,7 +22,7 @@ export function buildMetadata({
 }): Metadata {
   const url = absoluteUrl(pathname);
   return {
-    title: `${title} | ${SITE_NAME}`,
+    title,
     description,
     alternates: {
       canonical: url,
