@@ -22,7 +22,7 @@ export function SieveDiagram() {
     >
       <div className="mb-4 flex justify-between font-mono text-[11px] uppercase tracking-wider text-ink-soft">
         <span>{t('headerLabel')}</span>
-        <span>Sample #114</span>
+        <span>{t('sampleLabel')}</span>
       </div>
       {trayIds.map((id, i) => (
         <div key={id} className={`flex items-center gap-3.5 py-2.5 ${i > 0 ? 'border-t border-line' : ''}`}>
