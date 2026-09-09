@@ -2,7 +2,6 @@ import Image from 'next/image';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/navigation';
 import { HeroPhotos } from '@/components/HeroPhotos';
-import { CowIcon, BullIcon } from '@/components/icons/CattleIcons';
 import { ExpertiseGrid } from '@/components/ExpertiseGrid';
 import { ArticleCard } from '@/components/ArticleCard';
 import { GuideFeature } from '@/components/GuideFeature';
@@ -84,16 +83,20 @@ export default async function HomePage({
             <div className="mt-4 flex flex-wrap gap-3">
               <Link
                 href="/dairy-cattle"
-                className="focus-ring inline-flex items-center gap-2.5 rounded-sm border border-line px-4 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-bronze hover:text-bronze"
+                className="focus-ring inline-flex items-center gap-3 rounded-sm border border-line py-1.5 pl-1.5 pr-4 text-sm font-semibold text-ink transition-colors hover:border-bronze hover:text-bronze"
               >
-                <CowIcon className="h-6 w-6 shrink-0 text-bronze" />
+                <span className="relative h-9 w-9 shrink-0 overflow-hidden border border-line">
+                  <Image src="/images/dairy-cattle-thumb.jpg" alt="" fill sizes="36px" className="object-cover" />
+                </span>
                 {t('ctaDairyCattle')}
               </Link>
               <Link
                 href="/beef-cattle"
-                className="focus-ring inline-flex items-center gap-2.5 rounded-sm border border-line px-4 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-bronze hover:text-bronze"
+                className="focus-ring inline-flex items-center gap-3 rounded-sm border border-line py-1.5 pl-1.5 pr-4 text-sm font-semibold text-ink transition-colors hover:border-bronze hover:text-bronze"
               >
-                <BullIcon className="h-6 w-6 shrink-0 text-bronze" />
+                <span className="relative h-9 w-9 shrink-0 overflow-hidden border border-line">
+                  <Image src="/images/beef-cattle-thumb.jpg" alt="" fill sizes="36px" className="object-cover" />
+                </span>
                 {t('ctaBeefCattle')}
               </Link>
             </div>
