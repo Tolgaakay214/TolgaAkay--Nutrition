@@ -4,7 +4,8 @@ import { ArticleCard } from '@/components/ArticleCard';
 import { SectionHead } from '@/components/SectionHead';
 import { getAllArticles, type ArticleCategory } from '@/lib/content';
 import { buildMetadata } from '@/lib/seo';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import type { Locale } from '@/i18n';
 
 const CATEGORIES: ArticleCategory[] = [
   'Transition Cow Nutrition',
@@ -32,7 +33,7 @@ export async function generateMetadata({
   });
 }
 
-export default function ArticlesIndex({
+export default async function ArticlesIndex({
   params: { locale },
   searchParams
 }: {
@@ -40,13 +41,15 @@ export default function ArticlesIndex({
   searchParams: { category?: string };
 }) {
   setRequestLocale(locale);
-  const all = getAllArticles();
+  const t = await getTranslations('articles');
+  const tCat = await getTranslations('categories');
+  const all = getAllArticles(locale as Locale);
   const active = searchParams.category;
   const filtered = active ? all.filter((a) => a.category === active) : all;
 
   return (
     <div className="mx-auto max-w-content px-5 py-16 sm:px-8">
-      <SectionHead eyebrow="Knowledge Hub" title="Articles" />
+      <SectionHead eyebrow={t('eyebrow')} title={t('title')} />
 
       <div className="mb-10 flex flex-wrap gap-2">
         <Link
@@ -55,7 +58,7 @@ export default function ArticlesIndex({
             !active ? 'border-bronze bg-bronze text-ivory' : 'border-line text-ink-soft'
           }`}
         >
-          All
+          {t('allFilter')}
         </Link>
         {CATEGORIES.map((c) => (
           <Link
@@ -65,7 +68,7 @@ export default function ArticlesIndex({
               active === c ? 'border-bronze bg-bronze text-ivory' : 'border-line text-ink-soft'
             }`}
           >
-            {c}
+            {tCat(c)}
           </Link>
         ))}
       </div>
@@ -76,13 +79,13 @@ export default function ArticlesIndex({
             <ArticleCard article={a} />
             {a.status === 'upcoming' && (
               <span className="absolute right-3 top-3 rounded-full bg-espresso px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-ivory">
-                Coming Soon
+                {t('comingSoon')}
               </span>
             )}
           </div>
         ))}
       </div>
-      {filtered.length === 0 && <p className="text-ink-soft">No articles in this category yet.</p>}
+      {filtered.length === 0 && <p className="text-ink-soft">{t('noResults')}</p>}
     </div>
   );
 }
