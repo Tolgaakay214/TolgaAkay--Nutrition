@@ -24,15 +24,21 @@ const plexMono = IBM_Plex_Mono({
   display: 'swap'
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://tolgaakay.com'),
-  title: {
-    default: 'Tolga Akay — Applied Ruminant Nutrition',
-    template: '%s | Tolga Akay'
-  },
-  description:
-    'Science-based ruminant nutrition — dairy cow feeding, transition cow management, DCAD, rumen health, and applied research, from Tolga Akay.'
-};
+export async function generateMetadata({
+  params: { locale }
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'seo.home' });
+  return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://tolgaakay.com'),
+    title: {
+      default: `${t('title')} | Tolga Akay`,
+      template: '%s | Tolga Akay'
+    },
+    description: t('description')
+  };
+}
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
