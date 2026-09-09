@@ -25,7 +25,7 @@ export function Nav() {
   return (
     <>
       <header className="sticky top-0 z-40 border-b border-line bg-ivory/90 backdrop-blur">
-        <div className="mx-auto flex h-[76px] max-w-content items-center justify-between px-5 sm:px-8">
+        <div className="mx-auto flex h-[96px] max-w-content items-center justify-between px-5 sm:px-8">
           <Link href="/" className="focus-ring rounded-sm">
             <Logo />
           </Link>
@@ -75,7 +75,7 @@ export function Nav() {
       </header>
 
       {mobileOpen && (
-        <div className="fixed inset-0 top-[76px] z-40 flex flex-col justify-between bg-ivory p-8 lg:hidden">
+        <div className="fixed inset-0 top-[96px] z-40 flex flex-col justify-between bg-ivory p-8 lg:hidden">
           <nav className="flex flex-col gap-6">
             {links.map((l) => (
               <Link
