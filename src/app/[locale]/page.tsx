@@ -17,10 +17,10 @@ export async function generateMetadata({
 }: {
   params: { locale: string };
 }): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'seo.home' });
   return buildMetadata({
-    title: 'Applied Ruminant Nutrition',
-    description:
-      'Science-based ruminant nutrition — dairy cow feeding, transition cow management, DCAD, rumen health, and applied research, from Tolga Akay.',
+    title: t('title'),
+    description: t('description'),
     pathname: '/',
     locale
   });
@@ -95,7 +95,7 @@ export default async function HomePage({
       <section className="border-b border-line px-5 py-[88px] sm:px-8">
         <div className="mx-auto grid max-w-content grid-cols-1 items-start gap-11 sm:grid-cols-[220px_1fr]">
           <div className="flex aspect-[4/5] items-end border border-line bg-[repeating-linear-gradient(135deg,var(--ivory-2),var(--ivory-2)_8px,var(--ivory)_8px,var(--ivory)_9px)] p-3.5">
-            <span className="font-mono text-[10.5px] tracking-wider text-ink-soft">PORTRAIT — EDITORIAL STYLE</span>
+            <span className="font-mono text-[10.5px] tracking-wider text-ink-soft">{t('portraitCaption')}</span>
           </div>
           <div>
             <p className="eyebrow">{t('aboutEyebrow')}</p>
