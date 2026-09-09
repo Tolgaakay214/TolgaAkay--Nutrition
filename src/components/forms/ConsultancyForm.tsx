@@ -4,6 +4,9 @@ import { useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Turnstile } from '../Turnstile';
 
+// Canonical English values submitted to the backend — kept stable across
+// locales so downstream email/storage isn't locale-dependent. Display
+// labels come from the 'consultancy.areas' translation (same order).
 const AREAS = [
   'Ration Evaluation',
   'Transition Cow Feeding Programs',
@@ -23,6 +26,8 @@ const labelClass = 'mb-2 block font-mono text-[11px] uppercase tracking-wider te
 
 export function ConsultancyForm() {
   const t = useTranslations('forms');
+  const tc = useTranslations('consultancy');
+  const areaLabels = tc.raw('areas') as string[];
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const renderedAt = useRef(Date.now().toString());
   const [turnstileToken, setTurnstileToken] = useState('');
@@ -87,7 +92,7 @@ export function ConsultancyForm() {
           <input id="c-email" name="email" type="email" required className={fieldClass} />
         </div>
         <div>
-          <label className={labelClass} htmlFor="company">Company / Farm</label>
+          <label className={labelClass} htmlFor="company">{t('companyLabel')}</label>
           <input id="company" name="company" className={fieldClass} />
         </div>
         <div>
@@ -95,32 +100,32 @@ export function ConsultancyForm() {
           <input id="c-country" name="country" required className={fieldClass} />
         </div>
         <div>
-          <label className={labelClass} htmlFor="role">Role</label>
+          <label className={labelClass} htmlFor="role">{t('roleLabel')}</label>
           <input id="role" name="role" className={fieldClass} />
         </div>
         <div>
-          <label className={labelClass} htmlFor="preferredContact">Preferred Contact Method</label>
-          <input id="preferredContact" name="preferredContact" placeholder="Email, phone, video call…" className={fieldClass} />
+          <label className={labelClass} htmlFor="preferredContact">{t('preferredContactLabel')}</label>
+          <input id="preferredContact" name="preferredContact" placeholder={t('preferredContactPlaceholder')} className={fieldClass} />
         </div>
       </div>
 
       <fieldset>
-        <legend className={labelClass}>Area of Interest</legend>
+        <legend className={labelClass}>{t('areaOfInterestLegend')}</legend>
         <div className="flex flex-wrap gap-2.5">
-          {AREAS.map((area) => (
+          {AREAS.map((area, i) => (
             <label
               key={area}
               className="cursor-pointer rounded-full border border-line px-4 py-2 font-mono text-xs text-ink-soft has-[:checked]:border-bronze has-[:checked]:text-bronze"
             >
               <input type="checkbox" name="areasOfInterest" value={area} className="sr-only" />
-              {area}
+              {areaLabels[i] ?? area}
             </label>
           ))}
         </div>
       </fieldset>
 
       <div>
-        <label className={labelClass} htmlFor="description">Tell me about your operation or question</label>
+        <label className={labelClass} htmlFor="description">{t('descriptionLabel')}</label>
         <textarea id="description" name="description" required rows={6} maxLength={3000} className={fieldClass} />
       </div>
 
