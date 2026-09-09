@@ -60,7 +60,13 @@ export default async function HomePage({
               {t('heroTitle')}
             </h1>
             <p className="mt-5 max-w-[58ch] text-lg text-ink-soft">{t('heroSubtitle')}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Link
+                href="/consultancy"
+                className="focus-ring rounded-sm bg-bronze px-8 py-4 text-base font-semibold text-ivory shadow-sm transition-colors hover:bg-bronze-deep"
+              >
+                {t('ctaWork')} →
+              </Link>
               <Link
                 href="/articles"
                 className="focus-ring rounded-sm bg-espresso px-[18px] py-[10px] text-sm font-semibold text-ivory transition-colors hover:bg-bronze-deep"
@@ -72,12 +78,6 @@ export default async function HomePage({
                 className="focus-ring rounded-sm border border-ink px-[18px] py-[10px] text-sm font-semibold text-ink transition-colors hover:border-bronze hover:text-bronze"
               >
                 {t('ctaAsk')}
-              </Link>
-              <Link
-                href="/consultancy"
-                className="focus-ring inline-flex items-center px-0 py-[10px] text-sm font-semibold text-ink-soft transition-colors hover:text-bronze"
-              >
-                {t('ctaWork')} →
               </Link>
             </div>
             <div className="mt-13 flex flex-wrap gap-9 pt-5">
