@@ -1,31 +1,34 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 // Standard DCAD formula (meq/kg DM), using mineral content as %DM:
 //   meq/100g = (Na/0.023 + K/0.039) − (Cl/0.0355 + S/0.016)
 //   DCAD (meq/kg DM) = meq/100g × 10
 // Reference divisors are the milliequivalent weights of each ion.
-const TARGETS = {
-  lactating: { label: 'Lactating Cow', min: 150, max: 450 },
-  closeUp: { label: 'Close-Up (Prepartum)', min: -150, max: -50 }
+const STAGE_KEYS = {
+  lactating: { labelKey: 'stageLactating', min: 150, max: 450 },
+  closeUp: { labelKey: 'stageCloseUp', min: -150, max: -50 }
 } as const;
 
-type Stage = keyof typeof TARGETS;
+type Stage = keyof typeof STAGE_KEYS;
 
 function Field({
   label,
+  suffix,
   value,
   onChange
 }: {
   label: string;
+  suffix: string;
   value: string;
   onChange: (v: string) => void;
 }) {
   return (
     <label className="block">
       <span className="mb-2 block font-mono text-[11px] uppercase tracking-wider text-ink-soft">
-        {label} <span className="text-ink-soft/70">(% of DM)</span>
+        {label} <span className="text-ink-soft/70">{suffix}</span>
       </span>
       <input
         type="number"
@@ -41,6 +44,7 @@ function Field({
 }
 
 export function DCADCalculator() {
+  const t = useTranslations('dcadCalculator');
   const [na, setNa] = useState('0.35');
   const [k, setK] = useState('1.40');
   const [cl, setCl] = useState('0.35');
@@ -56,13 +60,14 @@ export function DCADCalculator() {
     return Math.round(meqPer100g * 10);
   }, [na, k, cl, s]);
 
-  const target = TARGETS[stage];
+  const target = STAGE_KEYS[stage];
+  const targetLabel = t(target.labelKey);
   const inRange = dcad >= target.min && dcad <= target.max;
 
   return (
     <div className="border border-line bg-ivory-2 p-6 sm:p-8">
       <div className="mb-6 flex flex-wrap items-center gap-2">
-        {(Object.keys(TARGETS) as Stage[]).map((key) => (
+        {(Object.keys(STAGE_KEYS) as Stage[]).map((key) => (
           <button
             key={key}
             type="button"
@@ -71,27 +76,27 @@ export function DCADCalculator() {
               stage === key ? 'border-bronze bg-bronze text-ivory' : 'border-line text-ink-soft'
             }`}
           >
-            {TARGETS[key].label}
+            {t(STAGE_KEYS[key].labelKey)}
           </button>
         ))}
       </div>
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-        <Field label="Sodium (Na)" value={na} onChange={setNa} />
-        <Field label="Potassium (K)" value={k} onChange={setK} />
-        <Field label="Chloride (Cl)" value={cl} onChange={setCl} />
-        <Field label="Sulfur (S)" value={s} onChange={setS} />
+        <Field label={t('fieldSodium')} suffix={t('percentOfDM')} value={na} onChange={setNa} />
+        <Field label={t('fieldPotassium')} suffix={t('percentOfDM')} value={k} onChange={setK} />
+        <Field label={t('fieldChloride')} suffix={t('percentOfDM')} value={cl} onChange={setCl} />
+        <Field label={t('fieldSulfur')} suffix={t('percentOfDM')} value={s} onChange={setS} />
       </div>
 
       <div className="mt-7 border-t border-line pt-6">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <span className="block font-mono text-[11px] uppercase tracking-wider text-ink-soft">
-              DCAD Result
+              {t('resultLabel')}
             </span>
             <span className="mt-1 block font-serif text-4xl tabular-nums text-ink">
               {Number.isFinite(dcad) ? dcad : '—'}
-              <span className="ml-2 text-base text-ink-soft">meq/kg DM</span>
+              <span className="ml-2 text-base text-ink-soft">{t('unitLabel')}</span>
             </span>
           </div>
           <span
@@ -99,13 +104,11 @@ export function DCADCalculator() {
               inRange ? 'bg-[#5E7A5C]/15 text-[#4a6148]' : 'bg-[#9C4A3C]/12 text-[#8a4234]'
             }`}
           >
-            {inRange ? 'Within target range' : 'Outside typical target range'}
+            {inRange ? t('withinRange') : t('outsideRange')}
           </span>
         </div>
         <p className="mt-3 text-sm text-ink-soft">
-          Typical target for {target.label.toLowerCase()}: {target.min} to {target.max} meq/kg DM.
-          Targets vary with breed, climate, and program design — use this as a starting reference,
-          not a substitute for a full mineral analysis and ration review.
+          {t('targetNote', { label: targetLabel.toLowerCase(), min: target.min, max: target.max })}
         </p>
       </div>
     </div>
