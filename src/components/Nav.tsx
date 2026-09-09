@@ -64,7 +64,7 @@ export function Nav() {
             </Link>
             <button
               type="button"
-              aria-label="Menu"
+              aria-label={t('menu')}
               className="focus-ring flex h-9 w-9 items-center justify-center text-ink lg:hidden"
               onClick={() => setMobileOpen((v) => !v)}
             >
