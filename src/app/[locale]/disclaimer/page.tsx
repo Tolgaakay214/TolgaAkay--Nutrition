@@ -7,9 +7,10 @@ export async function generateMetadata({
 }: {
   params: { locale: string };
 }): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'seo.disclaimer' });
   return buildMetadata({
-    title: 'Disclaimer',
-    description: 'Educational purpose disclaimer for content published on this site.',
+    title: t('title'),
+    description: t('description'),
     pathname: '/disclaimer',
     locale
   });
