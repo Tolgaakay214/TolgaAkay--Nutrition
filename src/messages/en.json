@@ -20,7 +20,13 @@
     "disclaimer": "Disclaimer",
     "rights": "All rights reserved.",
     "disclaimerLine": "Content on this site is for educational purposes and does not replace individualized veterinary or nutrition consultation.",
-    "readDisclaimer": "Read full disclaimer"
+    "readDisclaimer": "Read full disclaimer",
+    "aboutLink": "About",
+    "articlesLink": "Articles",
+    "guidesLink": "Technical Guides",
+    "resourcesLink": "Resources",
+    "askLink": "Ask a Question",
+    "collaborateLink": "Collaborate With Me"
   },
   "home": {
     "eyebrow": "Applied Ruminant Nutrition",
@@ -29,6 +35,11 @@
     "ctaExplore": "Explore Articles",
     "ctaAsk": "Ask a Question",
     "ctaWork": "Work With Me",
+    "statFocusAreasLabel": "Focus Areas",
+    "statContentValue": "Weekly",
+    "statContentLabel": "New Technical Content",
+    "statBilingualLabel": "Bilingual Infrastructure",
+    "aboutEyebrow": "About",
     "aboutStripTitle": "I'm Tolga Akay, an animal nutritionist working at the intersection of research and practice.",
     "aboutStripBody": "Currently R&D Coordinator and Lab Manager at Global Nutritech, and pursuing graduate studies in animal nutrition. This site is where I publish the technical thinking that doesn't fit in a lab report: rumen physiology, transition cow management, feed evaluation, and the everyday judgment calls that separate a good ration on paper from one that works in the bunk.",
     "readStory": "Read the full story",
@@ -46,11 +57,220 @@
     "collabTitle": "Have a question that needs more than a quick read?",
     "collabBody": "I work directly with dairy farms, veterinarians, and feed companies on ration evaluation, transition cow programs, and technical product assessment.",
     "collabCta": "See how we can work together",
+    "collabPills": ["Ration Evaluation", "Transition Cow Programs", "DCAD Evaluation", "TMR Assessment"],
     "newsletterTitle": "Weekly Ruminant Nutrition Notes",
     "newsletterBody": "Weekly research insights, practical feeding notes, and new technical articles on dairy and ruminant nutrition — straight to your inbox.",
     "newsletterFine": "No spam. Unsubscribe anytime.",
     "linkedinEyebrow": "Recent on LinkedIn",
-    "linkedinTitle": "Following the conversation, one post at a time"
+    "linkedinTitle": "Following the conversation, one post at a time",
+    "linkedinPostLabel": "Post",
+    "linkedinQuotes": [
+      "\"A 41% middle-screen reading isn't automatically 'good' — target ranges shift with forage type and delivery method.\"",
+      "\"Most bunk-life complaints trace back to one of three fermentation variables. Wrote up the diagnostic order I use.\"",
+      "\"DCAD math is simple. Getting the mineral analysis right underneath it is where programs actually fail.\""
+    ]
+  },
+  "layout": {
+    "skipToContent": "Skip to content"
+  },
+  "common": {
+    "breadcrumbHome": "Home"
+  },
+  "categories": {
+    "Transition Cow Nutrition": "Transition Cow Nutrition",
+    "Dairy Nutrition": "Dairy Nutrition",
+    "Rumen Function": "Rumen Function",
+    "Feed Additives": "Feed Additives",
+    "Minerals & DCAD": "Minerals & DCAD",
+    "Forage & TMR Management": "Forage & TMR Management",
+    "Metabolic Disorders": "Metabolic Disorders",
+    "Research Reviews": "Research Reviews",
+    "Farm Management": "Farm Management",
+    "Technical Notes": "Technical Notes"
+  },
+  "articles": {
+    "eyebrow": "Knowledge Hub",
+    "title": "Articles",
+    "allFilter": "All",
+    "comingSoon": "Coming Soon",
+    "noResults": "No articles in this category yet.",
+    "breadcrumbLabel": "Articles",
+    "shareLinkedIn": "Share on LinkedIn",
+    "shareX": "Share on X"
+  },
+  "guides": {
+    "eyebrow": "Technical Guides",
+    "title": "In-depth references, built for the barn and the desk.",
+    "comingSoon": "Coming Soon",
+    "pagesCount": "{count} pages",
+    "backLink": "← Technical Guides",
+    "label": "Technical Guide",
+    "readInBrowser": "Read in-browser or view PDF",
+    "readGuideBtn": "Read Guide",
+    "viewPdfBtn": "View PDF"
+  },
+  "researchNotes": {
+    "eyebrow": "Fast Reads",
+    "title": "Research Notes",
+    "backLink": "← Research Notes"
+  },
+  "resources": {
+    "eyebrow": "Free Tools",
+    "title": "Resources",
+    "openLink": "Open →",
+    "backLink": "← Resources",
+    "pdfPending": "This resource is being finalized as a downloadable PDF. In the meantime, request it directly.",
+    "worksheetPending": "This interactive worksheet is in development. In the meantime, request the current version directly.",
+    "requestButton": "Request This Resource"
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "About",
+    "bodyP1": "I'm an animal nutritionist working in ruminant and dairy cattle nutrition, currently serving as R&D Coordinator and Lab Manager at Global Nutritech, where I lead applied research and laboratory analysis supporting feed and feed-additive development. My work sits at the intersection of controlled research and the day-to-day realities of commercial dairy farms — which is the perspective I bring to everything published here.",
+    "bodyP2": "I'm currently pursuing a graduate degree with a focus on deepening my expertise in ruminant nutrition, particularly dairy cattle feeding systems. My interest in this field started with a simple frustration: how much published science never makes it into a form a farm can actually use. This site exists to close that gap — one technical article, one worksheet, one honest answer at a time.",
+    "altPortrait": "Portrait of Tolga Akay",
+    "timelineEyebrow": "Timeline",
+    "timelinePeriod0": "Present",
+    "timelineText0": "R&D Coordinator & Lab Manager, Global Nutritech",
+    "timelinePeriod1": "Present",
+    "timelineText1": "Graduate studies, Animal Nutrition",
+    "timelinePeriod2": "—",
+    "timelineText2": "Add your earlier roles, training, and milestones here",
+    "interestsEyebrow": "Research Interests",
+    "interests": [
+      "Ruminant Nutrition",
+      "Dairy Cow Nutrition",
+      "Transition Cow Management",
+      "Mineral Nutrition",
+      "DCAD",
+      "Rumen Physiology",
+      "Feed Additives",
+      "Feed Efficiency",
+      "Forage Evaluation",
+      "Metabolic Adaptation"
+    ]
+  },
+  "ask": {
+    "eyebrow": "Collaborate",
+    "title": "Have a Nutrition Question?",
+    "body": "I read every question submitted here personally. If yours is a common, general question, I may answer it publicly as a Research Note (with all identifying details removed) so others benefit too — let me know in the form if you'd prefer your question stay private. For farm-specific or urgent situations, please also consult your veterinarian or on-farm nutritionist directly; this is a supplementary resource, not an emergency channel.",
+    "faqEyebrow": "Frequently Asked",
+    "faqQuestion0": "What kinds of questions can I ask?",
+    "faqAnswer0": "Anything within ruminant and dairy cattle nutrition — ration evaluation, transition cow feeding, DCAD, rumen health, feed additives, TMR management, and related topics. Highly farm-specific or urgent situations are better handled directly with your veterinarian or on-farm nutritionist alongside anything I can add here.",
+    "faqQuestion1": "Will my question be published?",
+    "faqAnswer1": "Only if it is general enough to help others, and only with all identifying details removed. Check \"keep this private\" on the form if you would prefer your question isn't used publicly under any circumstances.",
+    "faqQuestion2": "How long does it take to hear back?",
+    "faqAnswer2": "I read every submission personally. Response time varies, but I aim to reply directly within a few business days where a specific reply is appropriate."
+  },
+  "consultancy": {
+    "eyebrow": "Collaborate",
+    "title": "Collaborate With Me",
+    "body": "I work with dairy farms, veterinarians, feed companies, and agribusinesses on a focused set of technical questions in ruminant nutrition. My approach starts from the same place published research does: look at the data, question the assumptions, and recommend only what the evidence actually supports for your specific situation.",
+    "areasEyebrow": "Areas I Can Support",
+    "areas": [
+      "Ration Evaluation",
+      "Transition Cow Feeding Programs",
+      "DCAD Evaluation",
+      "Feed Additive Evaluation",
+      "TMR & Particle Size Assessment",
+      "Feed and Forage Interpretation",
+      "Technical Product Evaluation",
+      "Scientific Literature Reviews",
+      "Ruminant Nutrition Training",
+      "Farm Nutrition Audits"
+    ],
+    "stepTitle0": "Initial Conversation",
+    "stepText0": "A short call or written exchange to understand your situation and whether I'm the right fit.",
+    "stepTitle1": "Scope & Data Review",
+    "stepText1": "I review your ration, feed analyses, or the specific question at hand.",
+    "stepTitle2": "Recommendations",
+    "stepText2": "You receive clear, evidence-based findings — not a generic report template.",
+    "closing": "If you're not sure whether your question fits here, ask — I'd rather have a short conversation than have you guess."
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Contact",
+    "body": "Choose the route that matches what you need — it gets your message to the right place faster than a single general inbox.",
+    "routeAskTitle": "Ask a Question",
+    "routeAskText": "General ruminant nutrition questions — I read and reply to every one personally.",
+    "routeCollabTitle": "Collaborate / Consultancy Request",
+    "routeCollabText": "Ration evaluation, transition cow programs, technical product assessment, and related work.",
+    "goLink": "Go →",
+    "directHeading": "Or send a message directly",
+    "directBody": "For anything that doesn't fit the routes above — it still reaches me by email."
+  },
+  "disclaimer": {
+    "eyebrow": "Legal",
+    "title": "Educational Purpose Disclaimer",
+    "p1": "The content published on this website — including articles, technical guides, research notes, downloadable resources, and any responses provided through the \"Ask a Question\" feature — is intended for general educational and informational purposes only. It reflects the author's professional interpretation of peer-reviewed research and field experience in ruminant and dairy cattle nutrition.",
+    "p2": "Nothing on this site constitutes individualized veterinary, nutritional, or agronomic advice for any specific animal, herd, or farm operation. Feeding programs, ration formulations, and health-related decisions should always be made in consultation with a licensed veterinarian or a qualified animal nutrition professional who has direct knowledge of your herd, feed inventory, and farm conditions.",
+    "p3": "Use of any calculator, worksheet, or checklist provided on this site does not replace professional assessment and is provided \"as is,\" without warranty of any kind. The author and this website assume no liability for outcomes resulting from the independent application of information found here."
+  },
+  "privacyPolicy": {
+    "eyebrow": "Legal",
+    "title": "Privacy Policy",
+    "intro": "This page explains what information this site collects, why, and how it's handled. It applies to tolgaakay.com and its subpages.",
+    "collectHeading": "What We Collect",
+    "collectItem0": "Information you submit through the Ask a Question, Collaborate, or Contact forms (name, email, country, profession, and your message or question).",
+    "collectItem1": "Files you choose to upload with a question (rations, feed analyses, photos, or documents).",
+    "collectItem2": "Your email address, if you subscribe to the newsletter.",
+    "collectItem3": "Basic, privacy-respecting analytics events (page views, referrers) — no cross-site tracking, no ad identifiers.",
+    "whyHeading": "Why We Collect It",
+    "whyBody": "Solely to respond to your inquiry, to send the newsletter if you've opted in, and to understand, in aggregate, how the site is used so it can be improved. Your data is never sold, and never used for advertising.",
+    "howLongHeading": "How Long We Keep It",
+    "howLongBody": "Form submissions and any attachments are retained for up to 12 months to support follow-up correspondence, then deleted. You can request earlier deletion at any time by emailing tolgaakay616@gmail.com.",
+    "newsletterHeading": "Newsletter",
+    "newsletterBody": "Subscribing requires confirming your email address (double opt-in). Every newsletter email includes a one-click unsubscribe link.",
+    "fileUploadsHeading": "File Uploads",
+    "fileUploadsBody": "Attachments submitted with a question are stored privately and are not publicly accessible. Some material submitted this way — rations, feed analyses — may be commercially sensitive to your operation, and is treated accordingly: viewed only as needed to respond to your question.",
+    "rightsHeading": "Your Rights",
+    "rightsBody": "You can ask, at any time, what data is held about you, request a correction, or request deletion, by emailing tolgaakay616@gmail.com.",
+    "contactHeading": "Contact",
+    "contactBody": "Questions about this policy: tolgaakay616@gmail.com."
+  },
+  "expertise": {
+    "transitionCow": { "title": "Transition Cow Nutrition", "desc": "Feeding strategy across the close-up and fresh periods." },
+    "dairyCow": { "title": "Dairy Cow Nutrition", "desc": "Ration design for milk yield, components, and health." },
+    "dcadMineral": { "title": "DCAD & Mineral Nutrition", "desc": "Cation-anion balance and macro/trace mineral supply." },
+    "rumenHealth": { "title": "Rumen Health", "desc": "Fermentation stability and subacute acidosis risk." },
+    "feedAdditives": { "title": "Feed Additives", "desc": "Where bypass and functional additives change outcomes." },
+    "tmrManagement": { "title": "TMR & Feeding Management", "desc": "Mix order, moisture, and delivery consistency." },
+    "particleSize": { "title": "Particle Size & PSPS", "desc": "Penn State Particle Separator interpretation." },
+    "feedEvaluation": { "title": "Feed Evaluation", "desc": "Reading NDF, NDFd, starch and CP fractions correctly." },
+    "metabolicDisease": { "title": "Metabolic Disease Prevention", "desc": "Ketosis, DA, and hypocalcemia — a feeding-first view." },
+    "appliedNutrition": { "title": "Applied Ruminant Nutrition", "desc": "Turning physiology and research into farm decisions." }
+  },
+  "sieve": {
+    "ariaLabel": "Penn State Particle Separator screen distribution, illustrative sample",
+    "headerLabel": "Penn State Separator",
+    "topScreen": "Top screen (19 mm)",
+    "middleScreen": "Middle screen (8 mm)",
+    "bottomPan": "Bottom pan (1.18 mm)",
+    "fineParticles": "Fine particles"
+  },
+  "search": {
+    "eyebrow": "Search",
+    "title": "Search the Knowledge Hub",
+    "placeholder": "DCAD, Penn State, corn silage, rumination, sodium bicarbonate…",
+    "noResults": "No results for \"{query}\"."
+  },
+  "searchBox": {
+    "inputPlaceholder": "DCAD, Penn State, corn silage…",
+    "noResults": "No results for \"{query}\"."
+  },
+  "dcadCalculator": {
+    "stageLactating": "Lactating Cow",
+    "stageCloseUp": "Close-Up (Prepartum)",
+    "fieldSodium": "Sodium (Na)",
+    "fieldPotassium": "Potassium (K)",
+    "fieldChloride": "Chloride (Cl)",
+    "fieldSulfur": "Sulfur (S)",
+    "percentOfDM": "(% of DM)",
+    "resultLabel": "DCAD Result",
+    "unitLabel": "meq/kg DM",
+    "withinRange": "Within target range",
+    "outsideRange": "Outside typical target range",
+    "targetNote": "Typical target for {label}: {min} to {max} meq/kg DM. Targets vary with breed, climate, and program design — use this as a starting reference, not a substitute for a full mineral analysis and ration review."
   },
   "forms": {
     "name": "Name",
@@ -61,6 +281,8 @@
     "question": "Question",
     "message": "Message",
     "attachments": "Attachments (optional)",
+    "attachmentsHelp": "Rations, feed analyses, photos or documents. Up to 3 files, 10MB each.",
+    "keepPrivate": "Keep this question private (don't publish it as a Research Note, even anonymized).",
     "submit": "Submit",
     "submitting": "Sending…",
     "successAsk": "Thank you — your question has been received. I review every submission personally and will follow up directly where a specific reply is appropriate.",
@@ -69,6 +291,13 @@
     "successNewsletter": "You're almost in — check your inbox to confirm your subscription.",
     "error": "Something went wrong sending this. Please try again, or email me directly.",
     "consent": "I understand this is general educational guidance, not a farm-specific veterinary or nutrition recommendation.",
-    "emailPlaceholder": "you@farm.com"
+    "emailPlaceholder": "you@farm.com",
+    "companyLabel": "Company / Farm",
+    "roleLabel": "Role",
+    "preferredContactLabel": "Preferred Contact Method",
+    "preferredContactPlaceholder": "Email, phone, video call…",
+    "areaOfInterestLegend": "Area of Interest",
+    "descriptionLabel": "Tell me about your operation or question",
+    "subscribeButton": "Subscribe"
   }
 }
